@@ -13,8 +13,8 @@
 		900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D1CEF281934C8007ABB12 /* Preview Assets.xcassets */; };
 		900D1CF8281936C7007ABB12 /* FullDiskPermision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */; };
 		900D1CFA281938D6007ABB12 /* IconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF9281938D6007ABB12 /* IconList.swift */; };
+		907A1010281A78C400FFFA0B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 907A100F281A78C400FFFA0B /* SwiftyJSON */; };
 		908A78FB2819640800951B15 /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A78FA2819640800951B15 /* IconManager.swift */; };
-		908A79002819749900951B15 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 908A78FF2819749900951B15 /* SwiftyJSON */; };
 		908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79012819753E00951B15 /* String+RangeSubscript.swift */; };
 		908A79072819839F00951B15 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 908A79062819839F00951B15 /* icons.json */; };
 		908A79092819840D00951B15 /* ChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79082819840D00951B15 /* ChangeView.swift */; };
@@ -23,7 +23,7 @@
 		908A7927281A5A4A00951B15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 908A7926281A5A4A00951B15 /* README.md */; };
 		908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A7929281A5AE800951B15 /* Github-Iconchanger.png */; };
 		908A792C281A759A00951B15 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A792B281A759A00951B15 /* SettingView.swift */; };
-		908A792E281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A792D281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png */; };
+		908A792E281A771800951B15 /* Api.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A792D281A771800951B15 /* Api.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,6 @@
 		900D1CEA281934C7007ABB12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		900D1CEC281934C8007ABB12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		900D1CEF281934C8007ABB12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		900D1CF1281934C8007ABB12 /* IconChanger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconChanger.entitlements; sourceTree = "<group>"; };
 		900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskPermision.swift; sourceTree = "<group>"; };
 		900D1CF9281938D6007ABB12 /* IconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconList.swift; sourceTree = "<group>"; };
 		908A78FA2819640800951B15 /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
@@ -44,7 +43,7 @@
 		908A7926281A5A4A00951B15 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		908A7929281A5AE800951B15 /* Github-Iconchanger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Github-Iconchanger.png"; sourceTree = "<group>"; };
 		908A792B281A759A00951B15 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		908A792D281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CleanShot 2022-04-28 at 15.17.24@2x.png"; sourceTree = "<group>"; };
+		908A792D281A771800951B15 /* Api.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Api.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				908A79002819749900951B15 /* SwiftyJSON in Frameworks */,
+				907A1010281A78C400FFFA0B /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +84,6 @@
 				900D1CE8281934C7007ABB12 /* IconChangerApp.swift */,
 				900D1CEA281934C7007ABB12 /* ContentView.swift */,
 				900D1CEC281934C8007ABB12 /* Assets.xcassets */,
-				900D1CF1281934C8007ABB12 /* IconChanger.entitlements */,
 				900D1CEE281934C8007ABB12 /* Preview Content */,
 				900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */,
 				900D1CF9281938D6007ABB12 /* IconList.swift */,
@@ -109,7 +107,7 @@
 		908A7928281A5AE200951B15 /* Github */ = {
 			isa = PBXGroup;
 			children = (
-				908A792D281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png */,
+				908A792D281A771800951B15 /* Api.png */,
 				908A7929281A5AE800951B15 /* Github-Iconchanger.png */,
 			);
 			path = Github;
@@ -132,7 +130,7 @@
 			);
 			name = IconChanger;
 			packageProductDependencies = (
-				908A78FF2819749900951B15 /* SwiftyJSON */,
+				907A100F281A78C400FFFA0B /* SwiftyJSON */,
 			);
 			productName = IconChanger;
 			productReference = 900D1CE5281934C7007ABB12 /* IconChanger.app */;
@@ -163,7 +161,7 @@
 			);
 			mainGroup = 900D1CDC281934C7007ABB12;
 			packageReferences = (
-				908A78FE2819749900951B15 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				907A100E281A78C400FFFA0B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 900D1CE6281934C7007ABB12 /* Products */;
 			projectDirPath = "";
@@ -183,7 +181,7 @@
 				908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				908A7927281A5A4A00951B15 /* README.md in Resources */,
-				908A792E281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png in Resources */,
+				908A792E281A771800951B15 /* Api.png in Resources */,
 				900D1CED281934C8007ABB12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +327,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = IconChanger/IconChanger.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -338,6 +337,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,6 +347,7 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuhaoyu.IconChanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -357,7 +358,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = IconChanger/IconChanger.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
@@ -366,6 +368,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -375,6 +378,7 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuhaoyu.IconChanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -404,7 +408,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		908A78FE2819749900951B15 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		907A100E281A78C400FFFA0B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
 			requirement = {
@@ -415,9 +419,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		908A78FF2819749900951B15 /* SwiftyJSON */ = {
+		907A100F281A78C400FFFA0B /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 908A78FE2819749900951B15 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 907A100E281A78C400FFFA0B /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
