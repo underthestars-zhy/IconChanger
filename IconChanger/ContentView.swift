@@ -43,6 +43,12 @@ struct ContentView: View {
                 }
                 .padding()
             }
+            .onAppear {
+                fullDiskPermision.check()
+                if !fullDiskPermision.hasPermision {
+                    NSWorkspace.shared.openLocationService(for: .fullDisk)
+                }
+            }
         }
     }
 }
@@ -50,5 +56,25 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+extension NSWorkspace {
+
+    enum SystemServiceType: String {
+        case privacy = "x-apple.systempreferences:com.apple.preference.security?Privacy"
+        case camera = "x-apple.systempreferences:com.apple.preference.security?Privacy_Camera"
+        case microphone = "x-apple.systempreferences:com.apple.preference.security?Privacy_Microphone"
+        case location = "x-apple.systempreferences:com.apple.preference.security?Privacy_LocationServices"
+        case contacts = "x-apple.systempreferences:com.apple.preference.security?Privacy_Contacts"
+        case calendars = "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars"
+        case reminders = "x-apple.systempreferences:com.apple.preference.security?Privacy_Reminders"
+        case photos = "x-apple.systempreferences:com.apple.preference.security?Privacy_Photos"
+        case fullDisk = "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
+    }
+
+    func openLocationService(for type: SystemServiceType) {
+        let url = URL(string: type.rawValue)!
+        NSWorkspace.shared.open(url)
     }
 }
