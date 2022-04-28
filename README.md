@@ -12,7 +12,7 @@ IconChanger is an app that can change you app's icon. It simplifies your icon ch
 
 ## How to get query api
 
-![](./Github/CleanShot 2022-04-28 at 15.17.24@2x.png)
+![](./Github/Api.png)
 
 1. Open safari
 2. Open https://macosicons.com/#/
