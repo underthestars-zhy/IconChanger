@@ -10,7 +10,7 @@ IconChanger is an app that can change you app's icon. It simplifies your icon ch
 2. Download the latest app
 
 
-## How to get query api
+## How to get query api (optional)
 
 ![](./Github/Api.png)
 
