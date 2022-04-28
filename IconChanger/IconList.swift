@@ -22,32 +22,57 @@ struct IconList: View {
     @State var showChangeView = false
     @State var setPath: String = ""
 
+    @State var searchText: String = ""
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: rules) {
-                ForEach(iconManager.apps, id: \.self) { app in
-                    VStack {
-                        Button {
-                            icons = iconManager.findRelated(app)
-                            setPath = app
-                            showChangeView.toggle()
-                        } label: {
-                            Image(nsImage: NSWorkspace.shared.icon(forFile: app))
-                                .resizable()
-                                .scaledToFit()
-                                .padding(.bottom)
-                        }
-                        .buttonStyle(BorderlessButtonStyle())
+                if !searchText.isEmpty {
+                    ForEach(iconManager.findSearchedImage(searchText), id: \.self) { app in
+                        VStack {
+                            Button {
+                                icons = iconManager.findRelated(app)
+                                setPath = app
+                                showChangeView.toggle()
+                            } label: {
+                                Image(nsImage: NSWorkspace.shared.icon(forFile: app))
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(.bottom)
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
 
-                        Text(iconManager.getAppName(app))
-                            .multilineTextAlignment(.center)
+                            Text(iconManager.getAppName(app))
+                                .multilineTextAlignment(.center)
+                        }
+                        .padding()
                     }
-                    .padding()
+                } else {
+                    ForEach(iconManager.apps, id: \.self) { app in
+                        VStack {
+                            Button {
+                                icons = iconManager.findRelated(app)
+                                setPath = app
+                                showChangeView.toggle()
+                            } label: {
+                                Image(nsImage: NSWorkspace.shared.icon(forFile: app))
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(.bottom)
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
+
+                            Text(iconManager.getAppName(app))
+                                .multilineTextAlignment(.center)
+                        }
+                        .padding()
+                    }
                 }
             }
         }
         .sheet(isPresented: $showChangeView) {
             ChangeView(icons: icons, setPath: setPath)
         }
+        .searchable(text: $searchText)
     }
 }

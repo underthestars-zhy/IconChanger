@@ -41,6 +41,12 @@ class IconManager: ObservableObject {
         }
     }
 
+    func findSearchedImage(_ search: String) -> [String] {
+        apps.filter {
+            $0.lowercased().contains(search.lowercased())
+        }
+    }
+
     func findRelated(_ url: String) -> [URL] {
         let name = getAppName(url)
         var res = Set<URL>()

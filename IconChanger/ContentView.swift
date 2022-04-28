@@ -11,18 +11,17 @@ struct ContentView: View {
     @StateObject var fullDiskPermision = FullDiskPermision.shared
     @StateObject var iconManager = IconManager.shared
 
-    @State var searchText: String = ""
     
     var body: some View {
         if fullDiskPermision.hasPermision {
             Group {
                 if iconManager.load {
                     ProgressView()
+                        .searchable(text: .constant(""))
                 } else {
                     IconList()
                 }
             }
-                .searchable(text: $searchText)
         } else {
             VStack {
                 Text("We Need Full Disk Access")
