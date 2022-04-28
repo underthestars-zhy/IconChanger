@@ -11,6 +11,15 @@
 		900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CEA281934C7007ABB12 /* ContentView.swift */; };
 		900D1CED281934C8007ABB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D1CEC281934C8007ABB12 /* Assets.xcassets */; };
 		900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D1CEF281934C8007ABB12 /* Preview Assets.xcassets */; };
+		900D1CF8281936C7007ABB12 /* FullDiskPermision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */; };
+		900D1CFA281938D6007ABB12 /* IconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF9281938D6007ABB12 /* IconList.swift */; };
+		908A78FB2819640800951B15 /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A78FA2819640800951B15 /* IconManager.swift */; };
+		908A79002819749900951B15 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 908A78FF2819749900951B15 /* SwiftyJSON */; };
+		908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79012819753E00951B15 /* String+RangeSubscript.swift */; };
+		908A79072819839F00951B15 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 908A79062819839F00951B15 /* icons.json */; };
+		908A79092819840D00951B15 /* ChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79082819840D00951B15 /* ChangeView.swift */; };
+		908A790B281A128700951B15 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A790A281A128700951B15 /* Request.swift */; };
+		908A790D281A148000951B15 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A790C281A148000951B15 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +29,14 @@
 		900D1CEC281934C8007ABB12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		900D1CEF281934C8007ABB12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		900D1CF1281934C8007ABB12 /* IconChanger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconChanger.entitlements; sourceTree = "<group>"; };
+		900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskPermision.swift; sourceTree = "<group>"; };
+		900D1CF9281938D6007ABB12 /* IconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconList.swift; sourceTree = "<group>"; };
+		908A78FA2819640800951B15 /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
+		908A79012819753E00951B15 /* String+RangeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RangeSubscript.swift"; sourceTree = "<group>"; };
+		908A79062819839F00951B15 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
+		908A79082819840D00951B15 /* ChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeView.swift; sourceTree = "<group>"; };
+		908A790A281A128700951B15 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		908A790C281A148000951B15 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908A79002819749900951B15 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,11 +70,19 @@
 		900D1CE7281934C7007ABB12 /* IconChanger */ = {
 			isa = PBXGroup;
 			children = (
+				908A790C281A148000951B15 /* ImageView.swift */,
+				908A79012819753E00951B15 /* String+RangeSubscript.swift */,
 				900D1CE8281934C7007ABB12 /* IconChangerApp.swift */,
 				900D1CEA281934C7007ABB12 /* ContentView.swift */,
 				900D1CEC281934C8007ABB12 /* Assets.xcassets */,
 				900D1CF1281934C8007ABB12 /* IconChanger.entitlements */,
 				900D1CEE281934C8007ABB12 /* Preview Content */,
+				900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */,
+				900D1CF9281938D6007ABB12 /* IconList.swift */,
+				908A78FA2819640800951B15 /* IconManager.swift */,
+				908A79062819839F00951B15 /* icons.json */,
+				908A79082819840D00951B15 /* ChangeView.swift */,
+				908A790A281A128700951B15 /* Request.swift */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -85,6 +111,9 @@
 			dependencies = (
 			);
 			name = IconChanger;
+			packageProductDependencies = (
+				908A78FF2819749900951B15 /* SwiftyJSON */,
+			);
 			productName = IconChanger;
 			productReference = 900D1CE5281934C7007ABB12 /* IconChanger.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 900D1CDC281934C7007ABB12;
+			packageReferences = (
+				908A78FE2819749900951B15 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 900D1CE6281934C7007ABB12 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908A79072819839F00951B15 /* icons.json in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				900D1CED281934C8007ABB12 /* Assets.xcassets in Resources */,
 			);
@@ -140,7 +173,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */,
+				908A790B281A128700951B15 /* Request.swift in Sources */,
+				908A78FB2819640800951B15 /* IconManager.swift in Sources */,
 				900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */,
+				900D1CFA281938D6007ABB12 /* IconList.swift in Sources */,
+				908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */,
+				908A790D281A148000951B15 /* ImageView.swift in Sources */,
+				900D1CF8281936C7007ABB12 /* FullDiskPermision.swift in Sources */,
+				908A79092819840D00951B15 /* ChangeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		908A78FE2819749900951B15 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		908A78FF2819749900951B15 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 908A78FE2819749900951B15 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 900D1CDD281934C7007ABB12 /* Project object */;
 }

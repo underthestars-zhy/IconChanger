@@ -8,9 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var fullDiskPermision = FullDiskPermision.shared
+    @StateObject var iconManager = IconManager.shared
+
+    @State var searchText: String = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if fullDiskPermision.hasPermision {
+            Group {
+                if iconManager.load {
+                    ProgressView()
+                } else {
+                    IconList()
+                }
+            }
+                .searchable(text: $searchText)
+        } else {
+            VStack {
+                Text("We Need Full Disk Access")
+                    .font(.largeTitle.bold())
+                    .padding()
+
+                VStack(alignment: .leading) {
+                    Text("1. Open Setting App")
+                    Text("2. Go to security")
+                    Text("3. Choose Full Disk Access")
+                    Text("4. Unlock")
+                    Text("5. Choose or add IconChanger")
+                    Text("6. Check th check box")
+                }
+                .multilineTextAlignment(.leading)
+
+                Button("Check Access") {
+                    fullDiskPermision.check()
+                }
+                .padding()
+            }
+        }
     }
 }
 

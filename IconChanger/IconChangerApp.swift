@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct IconChangerApp: App {
+    @StateObject var fullDiskPermision = FullDiskPermision.shared
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(minWidth: fullDiskPermision.hasPermision ? 750 : 500, minHeight: fullDiskPermision.hasPermision ? 500 : 300)
+                .animation(.easeInOut, value: fullDiskPermision.hasPermision)
         }
     }
 }
