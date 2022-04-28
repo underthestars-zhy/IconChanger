@@ -85,7 +85,7 @@ class MyQueryRequestController {
         // Form URL-Encoded Body
 
         let bodyObject: [String : Any] = [
-            "hitsPerPage": 25,
+            "hitsPerPage": 50,
             "query": query,
             "filters": "approved:true",
             "page": 0
