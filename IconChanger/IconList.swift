@@ -18,9 +18,7 @@ struct IconList: View {
                  GridItem(.flexible(), alignment: .top),
                  GridItem(.flexible(), alignment: .top)]
 
-    @State var icons = [URL]()
-    @State var showChangeView = false
-    @State var setPath: String = ""
+    @State var setPath: String? = nil
 
     @State var searchText: String = ""
 
@@ -31,9 +29,7 @@ struct IconList: View {
                     ForEach(iconManager.findSearchedImage(searchText), id: \.self) { app in
                         VStack {
                             Button {
-                                icons = iconManager.findRelated(app)
                                 setPath = app
-                                showChangeView.toggle()
                             } label: {
                                 Image(nsImage: NSWorkspace.shared.icon(forFile: app))
                                     .resizable()
@@ -51,9 +47,7 @@ struct IconList: View {
                     ForEach(iconManager.apps, id: \.self) { app in
                         VStack {
                             Button {
-                                icons = iconManager.findRelated(app)
                                 setPath = app
-                                showChangeView.toggle()
                             } label: {
                                 Image(nsImage: NSWorkspace.shared.icon(forFile: app))
                                     .resizable()
@@ -70,9 +64,18 @@ struct IconList: View {
                 }
             }
         }
-        .sheet(isPresented: $showChangeView) {
-            ChangeView(icons: icons, setPath: setPath)
+        .sheet(item: $setPath) {
+            ChangeView(setPath: $0)
+                .onDisappear {
+                    setPath = nil
+                }
         }
         .searchable(text: $searchText)
+    }
+}
+
+extension String: Identifiable {
+    public var id: String {
+        self
     }
 }

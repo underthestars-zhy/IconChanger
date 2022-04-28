@@ -13,7 +13,7 @@ struct ChangeView: View {
                  GridItem(.flexible(), alignment: .top),
                  GridItem(.flexible(), alignment: .top)]
 
-    let icons: [URL]
+    @State var icons: [URL] = []
     let setPath: String
 
     @Environment(\.presentationMode) var presentationMode
@@ -37,5 +37,15 @@ struct ChangeView: View {
             }
         }
         .frame(width: 500, height: 400)
+        .task {
+            icons = IconManager.shared.getIconInPath(setPath)
+            print(icons)
+            let name = IconManager.shared.getAppName(setPath)
+            do {
+                icons += try await MyQueryRequestController().sendRequest(name)
+            } catch {
+                print(error)
+            }
+        }
     }
 }

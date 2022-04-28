@@ -30,6 +30,9 @@ struct ImageView: View {
             Image("Unknown")
                 .resizable()
                 .scaledToFit()
+                .overlay {
+                    ProgressView()
+                }
                 .task {
                     do {
                         nsimage = try await MyRequestController().sendRequest(url)
