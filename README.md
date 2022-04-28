@@ -1,6 +1,7 @@
 # IconChanger
 
 IconChanger is an app that can change you app's icon. It simplifies your icon changing process.
+<br>
 ![](./Github/Github-Iconchanger.png)
 
 ## How to use
