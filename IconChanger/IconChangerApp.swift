@@ -17,5 +17,9 @@ struct IconChangerApp: App {
                 .frame(minWidth: fullDiskPermision.hasPermision ? 750 : 500, minHeight: fullDiskPermision.hasPermision ? 500 : 300)
                 .animation(.easeInOut, value: fullDiskPermision.hasPermision)
         }
+
+        Settings {
+            SettingView()
+        }
     }
 }

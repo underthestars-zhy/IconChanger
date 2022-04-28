@@ -22,6 +22,8 @@
 		908A790D281A148000951B15 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A790C281A148000951B15 /* ImageView.swift */; };
 		908A7927281A5A4A00951B15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 908A7926281A5A4A00951B15 /* README.md */; };
 		908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A7929281A5AE800951B15 /* Github-Iconchanger.png */; };
+		908A792C281A759A00951B15 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A792B281A759A00951B15 /* SettingView.swift */; };
+		908A792E281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A792D281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		908A790C281A148000951B15 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		908A7926281A5A4A00951B15 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		908A7929281A5AE800951B15 /* Github-Iconchanger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Github-Iconchanger.png"; sourceTree = "<group>"; };
+		908A792B281A759A00951B15 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		908A792D281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CleanShot 2022-04-28 at 15.17.24@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				908A79062819839F00951B15 /* icons.json */,
 				908A79082819840D00951B15 /* ChangeView.swift */,
 				908A790A281A128700951B15 /* Request.swift */,
+				908A792B281A759A00951B15 /* SettingView.swift */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 		908A7928281A5AE200951B15 /* Github */ = {
 			isa = PBXGroup;
 			children = (
+				908A792D281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png */,
 				908A7929281A5AE800951B15 /* Github-Iconchanger.png */,
 			);
 			path = Github;
@@ -177,6 +183,7 @@
 				908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				908A7927281A5A4A00951B15 /* README.md in Resources */,
+				908A792E281A771800951B15 /* CleanShot 2022-04-28 at 15.17.24@2x.png in Resources */,
 				900D1CED281934C8007ABB12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */,
+				908A792C281A759A00951B15 /* SettingView.swift in Sources */,
 				908A790B281A128700951B15 /* Request.swift in Sources */,
 				908A78FB2819640800951B15 /* IconManager.swift in Sources */,
 				900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */,

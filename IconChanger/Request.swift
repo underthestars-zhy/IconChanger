@@ -72,7 +72,7 @@ class MyQueryRequestController {
          Request (POST https://p1txh7zfb3-3.algolianet.com/1/indexes/macOSicons/query)
          */
 
-        guard let URL = URL(string: "https://p1txh7zfb3-2.algolianet.com/1/indexes/macOSicons/query") else { return [] }
+        guard let URL = URL(string: "https://\(UserDefaults.standard.string(forKey: "queryHost") ?? "p1txh7zfb3-2.algolianet.com")/1/indexes/macOSicons/query") else { return [] }
         var request = URLRequest(url: URL)
         request.httpMethod = "POST"
 
