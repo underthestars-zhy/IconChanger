@@ -63,6 +63,8 @@ class MyQueryRequestController {
          And set session-wide properties, such as: HTTPAdditionalHeaders,
          HTTPCookieAcceptPolicy, requestCachePolicy or timeoutIntervalForRequest.
          */
+        let query = qeuryMix(query)
+
         let sessionConfig = URLSessionConfiguration.default
 
         /* Create session, and optionally set a URLSessionDelegate. */
@@ -103,6 +105,14 @@ class MyQueryRequestController {
 
         return hits.compactMap { json in
             Foundation.URL(string: json["icnsUrl"].stringValue)
+        }
+    }
+
+    func qeuryMix(_ query: String) -> String {
+        switch query {
+        case "PyCharm Professional Edition": return "PyCharm"
+        case "Discord PTB": return "Discord"
+        default: return query
         }
     }
 }

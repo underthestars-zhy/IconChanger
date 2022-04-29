@@ -11,8 +11,8 @@ import SwiftyJSON
 class IconManager: ObservableObject {
     static let shared = IconManager()
 
-    var icons = [(String, String)]()
-    var apps: [String] = []
+    @Published var icons = [(String, String)]()
+    @Published var apps: [String] = []
 
     @Published var load = true
 
@@ -24,6 +24,8 @@ class IconManager: ObservableObject {
         }.map {
             applicationURL.appendingPathComponent($0).path
         }) ?? []
+
+        addition()
 
         Task {
             guard let url = Bundle.main.url(forResource: "icons.json", withExtension: nil) else {
@@ -38,6 +40,18 @@ class IconManager: ObservableObject {
                 icons.append((getNameFromURL(icon.stringValue), icon.stringValue))
             }
             load = false
+        }
+    }
+
+    func addition() {
+        if let data = UserDefaults.standard.data(forKey: "addition"), let folders = try? JSONDecoder().decode([URL].self, from: data) {
+            for folder in folders {
+                apps += (try? FileManager.default.contentsOfDirectory(atPath: folder.path).filter {
+                    $0.first != "."
+                }.map {
+                    folder.appendingPathComponent($0).path
+                }) ?? []
+            }
         }
     }
 
