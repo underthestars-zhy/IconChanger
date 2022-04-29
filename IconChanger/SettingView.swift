@@ -39,7 +39,7 @@ struct APISettingView: View {
 
 struct OtherFolderView: View {
     @State var add = false
-    @State var folders = UserDefaults.standard.object(forKey: "addition") as? [URL] ?? [URL]()
+    @State var folders = [URL]()
 
     var body: some View {
         VStack {
@@ -60,6 +60,11 @@ struct OtherFolderView: View {
             .padding()
         }
         .padding()
+        .onAppear {
+            if let data = UserDefaults.standard.data(forKey: "addition"), let folders = try? JSONDecoder().decode([URL].self, from: data) {
+                self.folders = folders
+            }
+        }
         .fileImporter(isPresented: $add, allowedContentTypes: [.folder]) { result in
             switch result{
             case .success(let url):
