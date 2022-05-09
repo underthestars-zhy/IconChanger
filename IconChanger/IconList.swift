@@ -45,21 +45,28 @@ struct IconList: View {
                     }
                 } else {
                     ForEach(iconManager.apps, id: \.self) { app in
-                        VStack {
-                            Button {
-                                setPath = app
-                            } label: {
-                                Image(nsImage: NSWorkspace.shared.icon(forFile: app))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(.bottom)
-                            }
-                            .buttonStyle(BorderlessButtonStyle())
+                        if let rep = NSWorkspace.shared.icon(forFile: app)
+                            .bestRepresentation(for: NSRect(x: 0, y: 0, width: 1024, height: 1024), context: nil, hints: nil) {
+                            VStack {
+                                Button {
+                                    setPath = app
+                                } label: {
+                                    Image(nsImage: { () -> NSImage in
+                                        let image = NSImage(size: rep.size)
+                                        image.addRepresentation(rep)
+                                        return image
+                                    }())
+                                        .resizable()
+                                        .scaledToFit()
+                                        .padding(.bottom)
+                                }
+                                .buttonStyle(BorderlessButtonStyle())
 
-                            Text(iconManager.getAppName(app))
-                                .multilineTextAlignment(.center)
+                                Text(iconManager.getAppName(app))
+                                    .multilineTextAlignment(.center)
+                            }
+                            .padding()
                         }
-                        .padding()
                     }
                 }
             }
