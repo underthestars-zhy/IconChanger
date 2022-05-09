@@ -14,21 +14,40 @@ struct ChangeView: View {
                  GridItem(.flexible(), alignment: .top)]
 
     @State var icons: [URL] = []
+    @State var inIcons: [URL] = []
     let setPath: String
 
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            LazyVGrid(columns: rules) {
-                ForEach(icons, id: \.self) { icon in
-                    ImageView(url: icon, setPath: setPath)
-                }
+        TabView {
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: rules) {
+                    ForEach(icons, id: \.self) { icon in
+                        ImageView(url: icon, setPath: setPath)
+                    }
 
-                Spacer()
+                    Spacer()
+                }
             }
-            .padding()
+            .tabItem {
+                Text("macOSIcon")
+            }
+
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: rules) {
+                    ForEach(inIcons, id: \.self) { icon in
+                        ImageView(url: icon, setPath: setPath)
+                    }
+
+                    Spacer()
+                }
+            }
+            .tabItem {
+                Text("Local")
+            }
         }
+        .padding()
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") {
@@ -38,11 +57,10 @@ struct ChangeView: View {
         }
         .frame(width: 500, height: 400)
         .task {
-            icons = IconManager.shared.getIconInPath(setPath)
-            print(icons)
+            inIcons = IconManager.shared.getIconInPath(setPath)
             let name = IconManager.shared.getAppName(setPath)
             do {
-                icons += try await MyQueryRequestController().sendRequest(name)
+                icons = try await MyQueryRequestController().sendRequest(name)
             } catch {
                 print(error)
             }
