@@ -22,6 +22,7 @@ struct IconList: View {
     @State var setPath: LaunchPadManagerDBHelper.AppInfo? = nil
 
     @State var searchText: String = ""
+    @State var setAlias: String?
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -52,6 +53,10 @@ struct IconList: View {
                                 NSPasteboard.general.clearContents()
                                 NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
                             }
+
+                            Button("Set Alias") {
+                                setAlias = app.url.deletingPathExtension().lastPathComponent
+                            }
                         }
                         .padding()
                     }
@@ -81,11 +86,18 @@ struct IconList: View {
                                 NSPasteboard.general.clearContents()
                                 NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
                             }
+
+                            Button("Set Alias") {
+                                setAlias = app.url.deletingPathExtension().lastPathComponent
+                            }
                         }
                         .padding()
                     }
                 }
             }
+        }
+        .sheet(item: $setAlias) {
+            SetAliasNameView(raw: $0, lastText: AliasName.getNames(for: $0) ?? "")
         }
         .sheet(item: $setPath) {
             ChangeView(setPath: $0)
