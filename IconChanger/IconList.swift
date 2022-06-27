@@ -11,13 +11,7 @@ import LaunchPadManagerDBHelper
 struct IconList: View {
     @StateObject var iconManager = IconManager.shared
 
-    let rules = [GridItem(.flexible(), alignment: .top),
-                 GridItem(.flexible(), alignment: .top),
-                 GridItem(.flexible(), alignment: .top),
-                 GridItem(.flexible(), alignment: .top),
-                 GridItem(.flexible(), alignment: .top),
-                 GridItem(.flexible(), alignment: .top),
-                 GridItem(.flexible(), alignment: .top)]
+    let rules = [GridItem(.adaptive(minimum: 100), alignment: .top)]
 
     @State var setPath: LaunchPadManagerDBHelper.AppInfo? = nil
 
