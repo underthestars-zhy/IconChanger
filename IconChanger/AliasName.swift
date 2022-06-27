@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AliasName {
     static let names = [
-//        "wechatwebdevtools": "wechat dev",
+        "wechatwebdevtools": "wechat dev",
         "WebStorm Early Access Program": "WebStorm",
         "PyCharm Professional Edition": "PyCharm"
     ]

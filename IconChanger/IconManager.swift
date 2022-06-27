@@ -58,7 +58,7 @@ class IconManager: ObservableObject {
 
     func getIcons(_ app: LaunchPadManagerDBHelper.AppInfo) async throws -> [URL] {
         let appName = app.name
-        let urlName = app.url.deletingPathExtension().lastPathComponent
+        let urlName = AliasName.getNames(for: app.url.deletingPathExtension().lastPathComponent) ?? app.url.deletingPathExtension().lastPathComponent
         let bundleName = try getAppBundleName(app)
 
         var urls = [URL]()
