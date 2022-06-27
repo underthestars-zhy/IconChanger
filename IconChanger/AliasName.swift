@@ -23,7 +23,6 @@ struct AliasName {
     }
 
     static func getNames(for raw: String) -> String? {
-        print(getNames())
         return getNames()[raw]
     }
 

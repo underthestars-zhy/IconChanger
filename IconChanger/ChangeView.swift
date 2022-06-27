@@ -65,6 +65,9 @@ struct ChangeView: View {
             }
         }
         .frame(width: 500, height: 400)
+        .onAppear {
+            inIcons = iconManager.getIconInPath(setPath.url)
+        }
         .task {
             do {
                 icons = try await iconManager.getIcons(setPath)

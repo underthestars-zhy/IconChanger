@@ -53,8 +53,8 @@ class IconManager: ObservableObject {
         }
     }
 
-    func getIconInPath(_ url: String) -> [URL] {
-        let url = URL(fileURLWithPath: url).appendingPathComponent("Contents").appendingPathComponent("Resources")
+    func getIconInPath(_ url: URL) -> [URL] {
+        let url = url.appendingPathComponent("Contents").appendingPathComponent("Resources")
         let file = (try? FileManager.default.contentsOfDirectory(atPath: url.path)) ?? [String]()
         return file.filter {
             $0.contains(".icns")
