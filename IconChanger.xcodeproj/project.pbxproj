@@ -152,7 +152,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					900D1CE4281934C7007ABB12 = {
@@ -437,7 +437,7 @@
 			repositoryURL = "https://github.com/underthestars-zhy/LaunchPadManagerDBHelper";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.6;
+				minimumVersion = 1.0.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

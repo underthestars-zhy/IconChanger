@@ -23,8 +23,11 @@ struct ImageView: View {
                 .scaledToFit()
                 .onTapGesture {
                     let appPath = URL(fileURLWithPath: setPath.url.universalPath())
-                    NSAppleScript(source: "do shell script \"sudo chmod 777 '\(appPath.path)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
-                    NSWorkspace.shared.setIcon(nsimage, forFile: appPath.path)
+                    if #unavailable(macOS 13) {
+                        NSAppleScript(source: "do shell script \"sudo chmod 777 '\(appPath.path)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
+                    }
+
+                    NSWorkspace.shared.setIcon(nsimage, forFile: appPath.universalPath())
                     presentationMode.wrappedValue.dismiss()
                 }
         } else {

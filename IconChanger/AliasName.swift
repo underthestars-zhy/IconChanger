@@ -11,7 +11,8 @@ struct AliasName {
     static let names = [
         "wechatwebdevtools": "wechat dev",
         "WebStorm Early Access Program": "WebStorm",
-        "PyCharm Professional Edition": "PyCharm"
+        "PyCharm Professional Edition": "PyCharm",
+        "语雀": "yuque"
     ]
 
     static func getNames() -> [String: String] {

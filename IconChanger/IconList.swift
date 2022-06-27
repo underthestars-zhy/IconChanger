@@ -51,6 +51,14 @@ struct IconList: View {
                             Button("Set Alias") {
                                 setAlias = app.url.deletingPathExtension().lastPathComponent
                             }
+
+                            Button("Remove Icon from Launchpad") {
+                                do {
+                                    try LaunchPadManagerDBHelper().removeApp(app)
+                                } catch {
+                                    print(error)
+                                }
+                            }
                         }
                         .padding()
                     }
@@ -83,6 +91,14 @@ struct IconList: View {
 
                             Button("Set Alias") {
                                 setAlias = app.url.deletingPathExtension().lastPathComponent
+                            }
+
+                            Button("Remove Icon from Launchpad") {
+                                do {
+                                    try LaunchPadManagerDBHelper().removeApp(app)
+                                } catch {
+                                    print(error)
+                                }
                             }
                         }
                         .padding()
