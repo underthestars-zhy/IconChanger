@@ -18,6 +18,9 @@ class IconManager: ObservableObject {
     @Published var load = true
 
     init() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(refresh), name: NSWindow.didBecomeKeyNotification, object: nil)
+
         Task {
             do {
                 let helper = try LaunchPadManagerDBHelper()
@@ -31,7 +34,7 @@ class IconManager: ObservableObject {
         }
     }
 
-    func refresh() {
+    @objc func refresh() {
         Task {
             load = false
             
