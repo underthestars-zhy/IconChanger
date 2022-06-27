@@ -106,6 +106,16 @@ struct IconList: View {
                 }
         }
         .searchable(text: $searchText)
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                Button {
+                    iconManager.refresh()
+                } label: {
+                    Image(systemName: "goforward")
+                }
+
+            }
+        }
     }
 }
 

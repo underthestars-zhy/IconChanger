@@ -31,6 +31,22 @@ class IconManager: ObservableObject {
         }
     }
 
+    func refresh() {
+        Task {
+            load = false
+            
+            do {
+                let helper = try LaunchPadManagerDBHelper()
+
+                apps = try helper.getAllAppInfos()
+
+                load = false
+            } catch {
+                print(error)
+            }
+        }
+    }
+
     func findSearchedImage(_ search: String) -> [LaunchPadManagerDBHelper.AppInfo] {
         apps.filter {
             $0.name.lowercased().contains(search.lowercased())
