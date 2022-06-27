@@ -42,6 +42,17 @@ struct IconList: View {
                             Text(app.name)
                                 .multilineTextAlignment(.center)
                         }
+                        .contextMenu {
+                            Button("Copy path") {
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
+                            }
+
+                            Button("Copy URL App Name") {
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
+                            }
+                        }
                         .padding()
                     }
                 } else {
@@ -59,6 +70,17 @@ struct IconList: View {
 
                             Text(app.name)
                                 .multilineTextAlignment(.center)
+                        }
+                        .contextMenu {
+                            Button("Copy path") {
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
+                            }
+
+                            Button("Copy URL App Name") {
+                                NSPasteboard.general.clearContents()
+                                NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
+                            }
                         }
                         .padding()
                     }

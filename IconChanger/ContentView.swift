@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var fullDiskPermision = FullDiskPermision.shared
     @StateObject var iconManager = IconManager.shared
-
     
     var body: some View {
         if fullDiskPermision.hasPermision {
@@ -43,7 +42,10 @@ struct ContentView: View {
                 }
                 .padding()
             }
-            .onAppear {
+            .task {
+                if #available(macOS 13.0, *) {
+                    try? await Task.sleep(until: .now + .seconds(1), clock: .suspending)
+                }
                 fullDiskPermision.check()
                 if !fullDiskPermision.hasPermision {
                     NSWorkspace.shared.openLocationService(for: .fullDisk)

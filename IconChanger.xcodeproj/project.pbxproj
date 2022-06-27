@@ -25,6 +25,7 @@
 		908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A7929281A5AE800951B15 /* Github-Iconchanger.png */; };
 		908A792C281A759A00951B15 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A792B281A759A00951B15 /* SettingView.swift */; };
 		908A792E281A771800951B15 /* Api.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A792D281A771800951B15 /* Api.png */; };
+		90B57B8028695BDF00EE52D3 /* AliasName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57B7F28695BDF00EE52D3 /* AliasName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		908A7929281A5AE800951B15 /* Github-Iconchanger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Github-Iconchanger.png"; sourceTree = "<group>"; };
 		908A792B281A759A00951B15 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		908A792D281A771800951B15 /* Api.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Api.png; sourceTree = "<group>"; };
+		90B57B7F28695BDF00EE52D3 /* AliasName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				908A790A281A128700951B15 /* Request.swift */,
 				908A792B281A759A00951B15 /* SettingView.swift */,
 				9083CCED28680BE20093A1B2 /* URL+Universal.swift */,
+				90B57B7F28695BDF00EE52D3 /* AliasName.swift */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				908A792C281A759A00951B15 /* SettingView.swift in Sources */,
 				908A790B281A128700951B15 /* Request.swift in Sources */,
 				908A78FB2819640800951B15 /* IconManager.swift in Sources */,
+				90B57B8028695BDF00EE52D3 /* AliasName.swift in Sources */,
 				900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */,
 				900D1CFA281938D6007ABB12 /* IconList.swift in Sources */,
 				908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */,
@@ -428,8 +432,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/underthestars-zhy/LaunchPadManagerDBHelper";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

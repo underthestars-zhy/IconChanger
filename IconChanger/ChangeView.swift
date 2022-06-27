@@ -20,15 +20,23 @@ struct ChangeView: View {
 
     @Environment(\.presentationMode) var presentationMode
 
+    @StateObject var iconManager = IconManager.shared
+
     var body: some View {
         TabView {
             ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: rules) {
-                    ForEach(icons, id: \.self) { icon in
-                        ImageView(url: icon, setPath: setPath)
+                if icons.isEmpty {
+                    VStack {
+                        ProgressView()
                     }
+                } else {
+                    LazyVGrid(columns: rules) {
+                        ForEach(icons, id: \.self) { icon in
+                            ImageView(url: icon, setPath: setPath)
+                        }
 
-                    Spacer()
+                        Spacer()
+                    }
                 }
             }
             .tabItem {
@@ -58,10 +66,8 @@ struct ChangeView: View {
         }
         .frame(width: 500, height: 400)
         .task {
-            inIcons = IconManager.shared.getIconInPath(setPath.url.universalPath())
-            let name = setPath.name
             do {
-                icons = try await MyQueryRequestController().sendRequest(name)
+                icons = try await iconManager.getIcons(setPath)
             } catch {
                 print(error)
             }

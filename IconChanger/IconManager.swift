@@ -24,8 +24,6 @@ class IconManager: ObservableObject {
 
                 apps = try helper.getAllAppInfos()
 
-                print(apps)
-
                 load = false
             } catch {
                 print(error)
@@ -56,6 +54,29 @@ class IconManager: ObservableObject {
         let endCount = url.count - ".icns".count
 
         return String(url[count..<endCount] ?? "")
+    }
+
+    func getIcons(_ app: LaunchPadManagerDBHelper.AppInfo) async throws -> [URL] {
+        let appName = app.name
+        let urlName = app.url.deletingPathExtension().lastPathComponent
+        let bundleName = try getAppBundleName(app)
+
+        var urls = [URL]()
+
+        urls.append(contentsOf: try await MyQueryRequestController().sendRequest(appName))
+        urls.append(contentsOf: try await MyQueryRequestController().sendRequest(urlName))
+        if let bundleName {
+            urls.append(contentsOf: try await MyQueryRequestController().sendRequest(bundleName))
+        }
+
+        return Set(urls).map { $0 }
+    }
+
+    func getAppBundleName(_ app: LaunchPadManagerDBHelper.AppInfo) throws -> String? {
+        let plistURL = app.url.universalappending(path: "Contents").universalappending(path: "Info.plist")
+        let plist = (try NSDictionary(contentsOf: plistURL, error: ())) as? Dictionary<String, AnyObject>
+
+        return (plist?["CFBundleDisplayName"] as? String) ?? (plist?["CFBundleName"] as? String)
     }
 }
 
