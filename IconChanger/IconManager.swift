@@ -7,73 +7,36 @@
 
 import SwiftUI
 import SwiftyJSON
+import LaunchPadManagerDBHelper
 
 class IconManager: ObservableObject {
     static let shared = IconManager()
 
     @Published var icons = [(String, String)]()
-    @Published var apps: [String] = []
+    @Published var apps: [LaunchPadManagerDBHelper.AppInfo] = []
 
     @Published var load = true
 
     init() {
-        let applicationURL = URL(fileURLWithPath: "//Applications")
-
-        apps = (try? FileManager.default.contentsOfDirectory(atPath: applicationURL.path).filter {
-            $0.first != "."
-        }.map {
-            applicationURL.appendingPathComponent($0).path
-        }) ?? []
-
-        addition()
-
         Task {
-            guard let url = Bundle.main.url(forResource: "icons.json", withExtension: nil) else {
-                return
-            }
+            do {
+                let helper = try LaunchPadManagerDBHelper()
 
-            let data = try Data(contentsOf: url)
+                apps = try helper.getAllAppInfos()
 
-            let json = try JSON(data: data)
+                print(apps)
 
-            for icon in json.arrayValue {
-                icons.append((getNameFromURL(icon.stringValue), icon.stringValue))
-            }
-            load = false
-        }
-    }
-
-    func addition() {
-        if let data = UserDefaults.standard.data(forKey: "addition"), let folders = try? JSONDecoder().decode([URL].self, from: data) {
-            for folder in folders {
-                apps += (try? FileManager.default.contentsOfDirectory(atPath: folder.path).filter {
-                    $0.first != "."
-                }.map {
-                    folder.appendingPathComponent($0).path
-                }) ?? []
+                load = false
+            } catch {
+                print(error)
             }
         }
     }
 
-    func findSearchedImage(_ search: String) -> [String] {
+    func findSearchedImage(_ search: String) -> [LaunchPadManagerDBHelper.AppInfo] {
         apps.filter {
-            $0.lowercased().contains(search.lowercased())
+            $0.name.lowercased().contains(search.lowercased())
         }
-    }
-
-    func findRelated(_ url: String) -> [URL] {
-        let name = getAppName(url)
-        var res = Set<URL>()
-
-        for icon in icons {
-            if icon.0.lowercased().contains(name.lowercased()) {
-                if let url = URL(string: icon.1) {
-                    res.insert(url)
-                }
-            }
-        }
-
-        return getIconInPath(url) + res.map { $0 }
     }
 
     func getIconInPath(_ url: String) -> [URL] {
@@ -88,14 +51,16 @@ class IconManager: ObservableObject {
         }
     }
 
-    func getAppName(_ url: String) -> String {
-        ((url as NSString).deletingPathExtension as NSString).lastPathComponent
-    }
-
     func getNameFromURL(_ url: String) -> String {
         let count = "https://media.macosicons.com/parse/files/macOSicons/81c998bdc590f1d6998187d39f6ea1d2".count
         let endCount = url.count - ".icns".count
 
         return String(url[count..<endCount] ?? "")
+    }
+}
+
+extension LaunchPadManagerDBHelper.AppInfo: Identifiable {
+    public var id: URL {
+        url
     }
 }

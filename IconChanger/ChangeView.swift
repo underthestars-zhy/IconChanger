@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LaunchPadManagerDBHelper
 
 struct ChangeView: View {
     let rules = [GridItem(.flexible(), alignment: .top),
@@ -15,7 +16,7 @@ struct ChangeView: View {
 
     @State var icons: [URL] = []
     @State var inIcons: [URL] = []
-    let setPath: String
+    let setPath: LaunchPadManagerDBHelper.AppInfo
 
     @Environment(\.presentationMode) var presentationMode
 
@@ -57,8 +58,8 @@ struct ChangeView: View {
         }
         .frame(width: 500, height: 400)
         .task {
-            inIcons = IconManager.shared.getIconInPath(setPath)
-            let name = IconManager.shared.getAppName(setPath)
+            inIcons = IconManager.shared.getIconInPath(setPath.url.universalPath())
+            let name = setPath.name
             do {
                 icons = try await MyQueryRequestController().sendRequest(name)
             } catch {

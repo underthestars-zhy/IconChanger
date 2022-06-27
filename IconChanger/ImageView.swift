@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import LaunchPadManagerDBHelper
 
 struct ImageView: View {
     let url: URL
-    let setPath: String
+    let setPath: LaunchPadManagerDBHelper.AppInfo
 
     @State var nsimage: NSImage?
 
@@ -21,7 +22,7 @@ struct ImageView: View {
                 .resizable()
                 .scaledToFit()
                 .onTapGesture {
-                    let appPath = URL(fileURLWithPath: setPath)
+                    let appPath = URL(fileURLWithPath: setPath.url.universalPath())
                     NSAppleScript(source: "do shell script \"sudo chmod 777 '\(appPath.path)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
                     NSWorkspace.shared.setIcon(nsimage, forFile: appPath.path)
                     presentationMode.wrappedValue.dismiss()

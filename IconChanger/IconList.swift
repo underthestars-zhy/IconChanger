@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LaunchPadManagerDBHelper
 
 struct IconList: View {
     @StateObject var iconManager = IconManager.shared
@@ -18,7 +19,7 @@ struct IconList: View {
                  GridItem(.flexible(), alignment: .top),
                  GridItem(.flexible(), alignment: .top)]
 
-    @State var setPath: String? = nil
+    @State var setPath: LaunchPadManagerDBHelper.AppInfo? = nil
 
     @State var searchText: String = ""
 
@@ -26,47 +27,40 @@ struct IconList: View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: rules) {
                 if !searchText.isEmpty {
-                    ForEach(iconManager.findSearchedImage(searchText), id: \.self) { app in
+                    ForEach(iconManager.findSearchedImage(searchText), id: \.url) { app in
                         VStack {
                             Button {
                                 setPath = app
                             } label: {
-                                Image(nsImage: NSWorkspace.shared.icon(forFile: app))
+                                Image(nsImage: NSWorkspace.shared.icon(forFile: app.url.universalPath()))
                                     .resizable()
                                     .scaledToFit()
                                     .padding(.bottom)
                             }
                             .buttonStyle(BorderlessButtonStyle())
 
-                            Text(iconManager.getAppName(app))
+                            Text(app.name)
                                 .multilineTextAlignment(.center)
                         }
                         .padding()
                     }
                 } else {
-                    ForEach(iconManager.apps, id: \.self) { app in
-                        if let rep = NSWorkspace.shared.icon(forFile: app)
-                            .bestRepresentation(for: NSRect(x: 0, y: 0, width: 1024, height: 1024), context: nil, hints: nil) {
-                            VStack {
-                                Button {
-                                    setPath = app
-                                } label: {
-                                    Image(nsImage: { () -> NSImage in
-                                        let image = NSImage(size: rep.size)
-                                        image.addRepresentation(rep)
-                                        return image
-                                    }())
-                                        .resizable()
-                                        .scaledToFit()
-                                        .padding(.bottom)
-                                }
-                                .buttonStyle(BorderlessButtonStyle())
-
-                                Text(iconManager.getAppName(app))
-                                    .multilineTextAlignment(.center)
+                    ForEach(iconManager.apps, id: \.url) { app in
+                        VStack {
+                            Button {
+                                setPath = app
+                            } label: {
+                                Image(nsImage: NSWorkspace.shared.icon(forFile: app.url.universalPath()))
+                                    .resizable()
+                                    .scaledToFit()
+                                    .padding(.bottom)
                             }
-                            .padding()
+                            .buttonStyle(BorderlessButtonStyle())
+
+                            Text(app.name)
+                                .multilineTextAlignment(.center)
                         }
+                        .padding()
                     }
                 }
             }

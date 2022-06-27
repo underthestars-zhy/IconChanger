@@ -13,10 +13,11 @@
 		900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D1CEF281934C8007ABB12 /* Preview Assets.xcassets */; };
 		900D1CF8281936C7007ABB12 /* FullDiskPermision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */; };
 		900D1CFA281938D6007ABB12 /* IconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF9281938D6007ABB12 /* IconList.swift */; };
-		907A1010281A78C400FFFA0B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 907A100F281A78C400FFFA0B /* SwiftyJSON */; };
+		9083CCE92867FDBD0093A1B2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9083CCE82867FDBD0093A1B2 /* SwiftyJSON */; };
+		9083CCEC2867FDDD0093A1B2 /* LaunchPadManagerDBHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 9083CCEB2867FDDD0093A1B2 /* LaunchPadManagerDBHelper */; };
+		9083CCEE28680BE20093A1B2 /* URL+Universal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083CCED28680BE20093A1B2 /* URL+Universal.swift */; };
 		908A78FB2819640800951B15 /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A78FA2819640800951B15 /* IconManager.swift */; };
 		908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79012819753E00951B15 /* String+RangeSubscript.swift */; };
-		908A79072819839F00951B15 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 908A79062819839F00951B15 /* icons.json */; };
 		908A79092819840D00951B15 /* ChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79082819840D00951B15 /* ChangeView.swift */; };
 		908A790B281A128700951B15 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A790A281A128700951B15 /* Request.swift */; };
 		908A790D281A148000951B15 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A790C281A148000951B15 /* ImageView.swift */; };
@@ -34,9 +35,9 @@
 		900D1CEF281934C8007ABB12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskPermision.swift; sourceTree = "<group>"; };
 		900D1CF9281938D6007ABB12 /* IconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconList.swift; sourceTree = "<group>"; };
+		9083CCED28680BE20093A1B2 /* URL+Universal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Universal.swift"; sourceTree = "<group>"; };
 		908A78FA2819640800951B15 /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
 		908A79012819753E00951B15 /* String+RangeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RangeSubscript.swift"; sourceTree = "<group>"; };
-		908A79062819839F00951B15 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
 		908A79082819840D00951B15 /* ChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeView.swift; sourceTree = "<group>"; };
 		908A790A281A128700951B15 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		908A790C281A148000951B15 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -51,7 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				907A1010281A78C400FFFA0B /* SwiftyJSON in Frameworks */,
+				9083CCE92867FDBD0093A1B2 /* SwiftyJSON in Frameworks */,
+				9083CCEC2867FDDD0093A1B2 /* LaunchPadManagerDBHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,10 +90,10 @@
 				900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */,
 				900D1CF9281938D6007ABB12 /* IconList.swift */,
 				908A78FA2819640800951B15 /* IconManager.swift */,
-				908A79062819839F00951B15 /* icons.json */,
 				908A79082819840D00951B15 /* ChangeView.swift */,
 				908A790A281A128700951B15 /* Request.swift */,
 				908A792B281A759A00951B15 /* SettingView.swift */,
+				9083CCED28680BE20093A1B2 /* URL+Universal.swift */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -130,7 +132,8 @@
 			);
 			name = IconChanger;
 			packageProductDependencies = (
-				907A100F281A78C400FFFA0B /* SwiftyJSON */,
+				9083CCE82867FDBD0093A1B2 /* SwiftyJSON */,
+				9083CCEB2867FDDD0093A1B2 /* LaunchPadManagerDBHelper */,
 			);
 			productName = IconChanger;
 			productReference = 900D1CE5281934C7007ABB12 /* IconChanger.app */;
@@ -144,7 +147,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					900D1CE4281934C7007ABB12 = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -161,7 +164,8 @@
 			);
 			mainGroup = 900D1CDC281934C7007ABB12;
 			packageReferences = (
-				907A100E281A78C400FFFA0B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				9083CCE72867FDBD0093A1B2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				9083CCEA2867FDDD0093A1B2 /* XCRemoteSwiftPackageReference "LaunchPadManagerDBHelper" */,
 			);
 			productRefGroup = 900D1CE6281934C7007ABB12 /* Products */;
 			projectDirPath = "";
@@ -177,7 +181,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				908A79072819839F00951B15 /* icons.json in Resources */,
 				908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				908A7927281A5A4A00951B15 /* README.md in Resources */,
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9083CCEE28680BE20093A1B2 /* URL+Universal.swift in Sources */,
 				900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */,
 				908A792C281A759A00951B15 /* SettingView.swift in Sources */,
 				908A790B281A128700951B15 /* Request.swift in Sources */,
@@ -242,6 +246,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -302,6 +307,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -331,7 +337,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"IconChanger/Preview Content\"";
 				DEVELOPMENT_TEAM = 44BN78992X;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -344,7 +351,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuhaoyu.IconChanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -362,7 +369,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"IconChanger/Preview Content\"";
 				DEVELOPMENT_TEAM = 44BN78992X;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -375,7 +383,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuhaoyu.IconChanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -408,7 +416,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		907A100E281A78C400FFFA0B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		9083CCE72867FDBD0093A1B2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
 			requirement = {
@@ -416,13 +424,26 @@
 				kind = branch;
 			};
 		};
+		9083CCEA2867FDDD0093A1B2 /* XCRemoteSwiftPackageReference "LaunchPadManagerDBHelper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/underthestars-zhy/LaunchPadManagerDBHelper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		907A100F281A78C400FFFA0B /* SwiftyJSON */ = {
+		9083CCE82867FDBD0093A1B2 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 907A100E281A78C400FFFA0B /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 9083CCE72867FDBD0093A1B2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		9083CCEB2867FDDD0093A1B2 /* LaunchPadManagerDBHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9083CCEA2867FDDD0093A1B2 /* XCRemoteSwiftPackageReference "LaunchPadManagerDBHelper" */;
+			productName = LaunchPadManagerDBHelper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
