@@ -20,11 +20,19 @@ struct SettingView: View {
 }
 
 struct APISettingView: View {
-    @AppStorage("queryHost") var queryHost: String = ""
+    @AppStorage("queryHost") var queryHost: String = "p1txh7zfb3-3.algolianet.com"
+    @State var text = ""
 
     var body: some View {
         Form {
-            TextField("Query Host: ", text: $queryHost)
+            TextField("Query Host: ", text: $text)
+                .onChange(of: text) { newValue in
+                    if newValue.isEmpty {
+                        queryHost = "p1txh7zfb3-3.algolianet.com"
+                    } else {
+                        queryHost = text
+                    }
+                }
 
             Spacer()
         }
