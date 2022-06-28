@@ -101,7 +101,7 @@ class IconManager: ObservableObject {
 
     func findSearchedImage(_ search: String) -> [LaunchPadManagerDBHelper.AppInfo] {
         apps.filter {
-            $0.name.lowercased().contains(search.lowercased())
+            $0.name.lowercased().contains(search.lowercased()) || $0.url.deletingPathExtension().lastPathComponent.lowercased().contains(search.lowercased())
         }
     }
 
@@ -142,7 +142,7 @@ class IconManager: ObservableObject {
 
     func getAppBundleName(_ app: LaunchPadManagerDBHelper.AppInfo) throws -> String? {
         let plistURL = app.url.universalappending(path: "Contents").universalappending(path: "Info.plist")
-        let plist = (try NSDictionary(contentsOf: plistURL, error: ())) as? Dictionary<String, AnyObject>
+        let plist = (try? NSDictionary(contentsOf: plistURL, error: ())) as? Dictionary<String, AnyObject>
 
         return (plist?["CFBundleDisplayName"] as? String) ?? (plist?["CFBundleName"] as? String)
     }
