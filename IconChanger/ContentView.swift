@@ -54,6 +54,10 @@ struct ContentView: View {
             }
             .task {
                 if helperToolVersion < Config.helperToolVersion {
+                    if #available(macOS 13.0, *) {
+                        try? await Task.sleep(until: .now + .seconds(1), clock: .suspending)
+                    }
+                    
                     do {
                         try iconManager.installHelperTool()
                         helperToolVersion = Config.helperToolVersion

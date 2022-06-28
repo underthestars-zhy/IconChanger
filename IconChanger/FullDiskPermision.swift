@@ -10,7 +10,7 @@ import SwiftUI
 class FullDiskPermision: ObservableObject {
     static let shared = FullDiskPermision()
 
-    @Published var hasPermision: Bool
+    @Published var hasPermision: Bool = true
 
     init() {
         hasPermision = UserDefaults.standard.bool(forKey: "FullDisk")
