@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var fullDiskPermision = FullDiskPermision.shared
     @StateObject var iconManager = IconManager.shared
+    @AppStorage("helperToolVersion") var helperToolVersion = 0
     
     var body: some View {
         if fullDiskPermision.hasPermision {
@@ -49,6 +50,16 @@ struct ContentView: View {
                 fullDiskPermision.check()
                 if !fullDiskPermision.hasPermision {
                     NSWorkspace.shared.openLocationService(for: .fullDisk)
+                }
+            }
+            .task {
+                if helperToolVersion < Config.helperToolVersion {
+                    do {
+                        try iconManager.installHelperTool()
+                        helperToolVersion = Config.helperToolVersion
+                    } catch {
+                        fatalError(error.localizedDescription)
+                    }
                 }
             }
         }

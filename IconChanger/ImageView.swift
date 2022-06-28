@@ -22,11 +22,14 @@ struct ImageView: View {
                 .resizable()
                 .scaledToFit()
                 .onTapGesture {
-                    let appPath = URL(fileURLWithPath: setPath.url.universalPath())
-                    NSAppleScript(source: "do shell script \"sudo chmod 777 '\(appPath.path)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
-
-                    NSWorkspace.shared.setIcon(nsimage, forFile: appPath.universalPath())
-                    presentationMode.wrappedValue.dismiss()
+                    do {
+                        try IconManager.shared.setHelperToolContent(path: setPath.url.universalPath())
+                        try IconManager.shared.runHelperTool()
+                        NSWorkspace.shared.setIcon(nsimage, forFile: setPath.url.universalPath())
+                        presentationMode.wrappedValue.dismiss()
+                    } catch {
+                        print(error)
+                    }
                 }
         } else {
             Image("Unknown")

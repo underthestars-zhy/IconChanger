@@ -27,6 +27,9 @@
 		908A792E281A771800951B15 /* Api.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A792D281A771800951B15 /* Api.png */; };
 		90B57B8028695BDF00EE52D3 /* AliasName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57B7F28695BDF00EE52D3 /* AliasName.swift */; };
 		90B57B8228697BEF00EE52D3 /* SetAliasNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57B8128697BEF00EE52D3 /* SetAliasNameView.swift */; };
+		90B57C19286AA20E00EE52D3 /* chmodHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 90B57C18286AA20E00EE52D3 /* chmodHelper.sh */; };
+		90B57C1B286AA2B400EE52D3 /* URL+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1A286AA2B400EE52D3 /* URL+Document.swift */; };
+		90B57C1D286AA2F800EE52D3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1C286AA2F800EE52D3 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +52,10 @@
 		908A792D281A771800951B15 /* Api.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Api.png; sourceTree = "<group>"; };
 		90B57B7F28695BDF00EE52D3 /* AliasName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasName.swift; sourceTree = "<group>"; };
 		90B57B8128697BEF00EE52D3 /* SetAliasNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAliasNameView.swift; sourceTree = "<group>"; };
-		90B57BBB2869A7D800EE52D3 /* IconChanger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconChanger.entitlements; sourceTree = "<group>"; };
+		90B57C18286AA20E00EE52D3 /* chmodHelper.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = chmodHelper.sh; sourceTree = "<group>"; };
+		90B57C1A286AA2B400EE52D3 /* URL+Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Document.swift"; sourceTree = "<group>"; };
+		90B57C1C286AA2F800EE52D3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		90B57C1E286AA62300EE52D3 /* IconChanger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconChanger.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +92,7 @@
 		900D1CE7281934C7007ABB12 /* IconChanger */ = {
 			isa = PBXGroup;
 			children = (
-				90B57BBB2869A7D800EE52D3 /* IconChanger.entitlements */,
+				90B57C1E286AA62300EE52D3 /* IconChanger.entitlements */,
 				908A790C281A148000951B15 /* ImageView.swift */,
 				908A79012819753E00951B15 /* String+RangeSubscript.swift */,
 				900D1CE8281934C7007ABB12 /* IconChangerApp.swift */,
@@ -102,6 +108,9 @@
 				9083CCED28680BE20093A1B2 /* URL+Universal.swift */,
 				90B57B7F28695BDF00EE52D3 /* AliasName.swift */,
 				90B57B8128697BEF00EE52D3 /* SetAliasNameView.swift */,
+				90B57C18286AA20E00EE52D3 /* chmodHelper.sh */,
+				90B57C1A286AA2B400EE52D3 /* URL+Document.swift */,
+				90B57C1C286AA2F800EE52D3 /* Config.swift */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -190,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */,
+				90B57C19286AA20E00EE52D3 /* chmodHelper.sh in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				908A7927281A5A4A00951B15 /* README.md in Resources */,
 				908A792E281A771800951B15 /* Api.png in Resources */,
@@ -204,7 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B57C1B286AA2B400EE52D3 /* URL+Document.swift in Sources */,
 				9083CCEE28680BE20093A1B2 /* URL+Universal.swift in Sources */,
+				90B57C1D286AA2F800EE52D3 /* Config.swift in Sources */,
 				900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */,
 				908A792C281A759A00951B15 /* SettingView.swift in Sources */,
 				908A790B281A128700951B15 /* Request.swift in Sources */,

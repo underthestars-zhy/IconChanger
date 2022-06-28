@@ -50,6 +50,26 @@ class IconManager: ObservableObject {
         }
     }
 
+    func installHelperTool() throws {
+        print(URL.documents)
+        guard let shBundlePath = Bundle.main.path(forResource: "chmodHelper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
+        try FileManager.default.copyItem(atPath: shBundlePath, toPath: URL.documents.universalappending(path: "chmodHelper.sh").universalPath())
+        NSAppleScript(source: "do shell script \"sudo chmod 777 '\(URL.documents.universalappending(path: "chmodHelper.sh").universalPath())'\" with administrator " + "privileges")!.executeAndReturnError(nil)
+    }
+
+    func setHelperToolContent(path: String) throws {
+        let helperToolURL = URL.documents.universalappending(path: "chmodHelper.sh")
+        var content = try String(contentsOf: helperToolURL, encoding: .utf8)
+
+        if #available(macOS 13.0, *) {
+            content.replace("%path", with: path)
+        } else {
+            content = content.replace(target: "%path", withString: path)
+        }
+
+        try content.write(to: helperToolURL, atomically: true, encoding: .utf8)
+    }
+
     func findSearchedImage(_ search: String) -> [LaunchPadManagerDBHelper.AppInfo] {
         apps.filter {
             $0.name.lowercased().contains(search.lowercased())
@@ -97,10 +117,40 @@ class IconManager: ObservableObject {
 
         return (plist?["CFBundleDisplayName"] as? String) ?? (plist?["CFBundleName"] as? String)
     }
+
+    func runHelperTool() throws {
+        let helperToolURL = URL.documents.universalappending(path: "chmodHelper.sh")
+        try Self.safeShell("./\(helperToolURL.universalPath())")
+    }
+
+    @discardableResult
+    static func safeShell(_ command: String) throws -> String {
+        let task = Process()
+        let pipe = Pipe()
+
+        task.standardOutput = pipe
+        task.standardError = pipe
+        task.arguments = ["-c", command]
+        task.executableURL = URL(fileURLWithPath: "/bin/zsh")
+        task.standardInput = nil
+
+        try task.run()
+
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output = String(data: data, encoding: .utf8)!
+
+        return output
+    }
 }
 
 extension LaunchPadManagerDBHelper.AppInfo: Identifiable {
     public var id: URL {
         url
+    }
+}
+
+extension String {
+    func replace(target: String, withString: String) -> String {
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
 }
