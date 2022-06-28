@@ -117,13 +117,22 @@ struct IconList: View {
         }
         .searchable(text: $searchText)
         .toolbar {
+            ToolbarItem {
+                Menu {
+                    Button("Install Helper Again") {
+                        try? iconManager.installHelperTool()
+                    }
+                } label: {
+                    Image(systemName: "hammer.fill")
+                }
+            }
+            
             ToolbarItem(placement: .automatic) {
                 Button {
                     iconManager.refresh()
                 } label: {
                     Image(systemName: "goforward")
                 }
-
             }
         }
     }
