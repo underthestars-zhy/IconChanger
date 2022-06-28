@@ -51,10 +51,19 @@ class IconManager: ObservableObject {
     }
 
     func installHelperTool() throws {
+#if DEBUG
         print(URL.documents)
+#endif
+
         guard let shBundlePath = Bundle.main.path(forResource: "chmodHelper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
-        try FileManager.default.copyItem(atPath: shBundlePath, toPath: URL.documents.universalappending(path: "chmodHelper.sh").universalPath())
-        NSAppleScript(source: "do shell script \"sudo chmod 777 '\(URL.documents.universalappending(path: "chmodHelper.sh").universalPath())'\" with administrator " + "privileges")!.executeAndReturnError(nil)
+        guard let installerHelperPath = Bundle.main.path(forResource: "installHelper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
+        let helperToolURL = URL.documents.universalappending(path: "chmodHelper.sh")
+        if FileManager.default.fileExists(atPath: helperToolURL.universalPath()) {
+            try FileManager.default.removeItem(at: helperToolURL)
+        }
+        try FileManager.default.copyItem(atPath: shBundlePath, toPath: helperToolURL.universalPath())
+        try setInstallerContent(path: helperToolURL.universalPath())
+        NSAppleScript(source: "do shell script \"chmod +x '\(installerHelperPath)' && sudo '\(installerHelperPath)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
     }
 
     func setHelperToolContent(path: String) throws {
@@ -68,6 +77,26 @@ class IconManager: ObservableObject {
         }
 
         try content.write(to: helperToolURL, atomically: true, encoding: .utf8)
+    }
+
+    func setInstallerContent(path: String) throws {
+        guard let _installerHelperPath = Bundle.main.path(forResource: "installHelper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
+        let installerHelperPath = URL(universalFilePath: _installerHelperPath)
+        var content = try String(contentsOf: installerHelperPath, encoding: .utf8)
+
+        if #available(macOS 13.0, *) {
+            content.replace("%path", with: path)
+        } else {
+            content = content.replace(target: "%path", withString: path)
+        }
+
+        try content.write(to: installerHelperPath, atomically: true, encoding: .utf8)
+    }
+
+    func recoverHelpTool() throws {
+        guard let shBundlePath = Bundle.main.path(forResource: "chmodHelper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
+        let content = try String(contentsOf: URL(universalFilePath: shBundlePath), encoding: .utf8)
+        try content.write(to: URL.documents.universalappending(path: "chmodHelper.sh"), atomically: true, encoding: .utf8)
     }
 
     func findSearchedImage(_ search: String) -> [LaunchPadManagerDBHelper.AppInfo] {

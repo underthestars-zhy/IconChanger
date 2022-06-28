@@ -30,6 +30,7 @@
 		90B57C19286AA20E00EE52D3 /* chmodHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 90B57C18286AA20E00EE52D3 /* chmodHelper.sh */; };
 		90B57C1B286AA2B400EE52D3 /* URL+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1A286AA2B400EE52D3 /* URL+Document.swift */; };
 		90B57C1D286AA2F800EE52D3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1C286AA2F800EE52D3 /* Config.swift */; };
+		90B57C20286AB90700EE52D3 /* installHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 90B57C1F286AB90700EE52D3 /* installHelper.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		90B57C1A286AA2B400EE52D3 /* URL+Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Document.swift"; sourceTree = "<group>"; };
 		90B57C1C286AA2F800EE52D3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		90B57C1E286AA62300EE52D3 /* IconChanger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconChanger.entitlements; sourceTree = "<group>"; };
+		90B57C1F286AB90700EE52D3 /* installHelper.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = installHelper.sh; sourceTree = "<group>"; };
+		90B57C21286ACBA700EE52D3 /* StringTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringTest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				90B57C18286AA20E00EE52D3 /* chmodHelper.sh */,
 				90B57C1A286AA2B400EE52D3 /* URL+Document.swift */,
 				90B57C1C286AA2F800EE52D3 /* Config.swift */,
+				90B57C1F286AB90700EE52D3 /* installHelper.sh */,
+				90B57C21286ACBA700EE52D3 /* StringTest.playground */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */,
+				90B57C20286AB90700EE52D3 /* installHelper.sh in Resources */,
 				90B57C19286AA20E00EE52D3 /* chmodHelper.sh in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				908A7927281A5A4A00951B15 /* README.md in Resources */,
