@@ -36,7 +36,7 @@ class AutoUpdater: NSObject {
             Logger().error("updater was nil")
             return
         }
-        Logger().info("Checking for updates at \(updater.feedURL)")
+
         updater.checkForUpdates()
     }
 
