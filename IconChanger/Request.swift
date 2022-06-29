@@ -103,7 +103,9 @@ class MyQueryRequestController {
         let json = try JSON(data: data)
         let hits = json["hits"].arrayValue
 
-        return hits.map { json in
+        return hits.filter { json in
+            json["appName"].string?.lowercased().contains(query.lowercased()) ?? false
+        }.map { json in
             (Foundation.URL(string: json["icnsUrl"].stringValue), json["downloads"].intValue)
         }.sorted { hit1, hit2 in
             hit1.1 > hit2.1
