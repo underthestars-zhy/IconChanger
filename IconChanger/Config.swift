@@ -8,5 +8,5 @@
 import Foundation
 
 struct Config {
-    static let helperToolVersion = 20
+    static let helperToolVersion = 23
 }

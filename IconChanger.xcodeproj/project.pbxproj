@@ -16,6 +16,7 @@
 		9053434C286B287400237F98 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9053434B286B287400237F98 /* Sparkle */; };
 		9053434F286B2A6800237F98 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053434E286B2A6800237F98 /* AutoUpdater.swift */; };
 		90534352286C8BDA00237F98 /* fileicon in Resources */ = {isa = PBXBuildFile; fileRef = 90534351286C8BDA00237F98 /* fileicon */; };
+		9053438B287550C200237F98 /* helper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9053438A287534C300237F98 /* helper.sh */; };
 		9083CCE92867FDBD0093A1B2 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9083CCE82867FDBD0093A1B2 /* SwiftyJSON */; };
 		9083CCEC2867FDDD0093A1B2 /* LaunchPadManagerDBHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 9083CCEB2867FDDD0093A1B2 /* LaunchPadManagerDBHelper */; };
 		9083CCEE28680BE20093A1B2 /* URL+Universal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9083CCED28680BE20093A1B2 /* URL+Universal.swift */; };
@@ -218,6 +219,7 @@
 			files = (
 				908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */,
 				90534352286C8BDA00237F98 /* fileicon in Resources */,
+				9053438B287550C200237F98 /* helper.sh in Resources */,
 				90B57C20286AB90700EE52D3 /* installHelper.sh in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				908A7927281A5A4A00951B15 /* README.md in Resources */,

@@ -23,9 +23,7 @@ struct ImageView: View {
                 .scaledToFit()
                 .onTapGesture {
                     do {
-                        try IconManager.shared.setHelperToolContent(path: setPath.url.universalPath())
-                        try IconManager.shared.runHelperTool()
-                        NSWorkspace.shared.setIcon(nsimage, forFile: setPath.url.universalPath())
+                        try IconManager.shared.setImage(nsimage, app: setPath)
                         presentationMode.wrappedValue.dismiss()
                     } catch {
                         print(error)

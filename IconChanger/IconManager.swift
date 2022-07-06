@@ -69,13 +69,31 @@ class IconManager: ObservableObject {
         try FileManager.default.copyItem(at: URL(universalFilePath: fileiconBundlePath), to: fileiconPath)
         try FileManager.default.copyItem(at: URL(universalFilePath: helperBundlePath), to: helperPath)
 
-        try setContent(URL(universalFilePath: installHelperBundlePath), replacement: ["path" : helperPath.universalPath()])
-
-        NSAppleScript(source: "do shell script \"chmod +x '\(installHelperBundlePath)' && sudo '\(installHelperBundlePath)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
+        try setContent(URL(universalFilePath: installHelperBundlePath), replacement: ["path" : helperPath.universalPath(), "fileicon": fileiconPath.universalPath()]) {
+            NSAppleScript(source: "do shell script \"chmod +x '\(installHelperBundlePath)' && sudo '\(installHelperBundlePath)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
+        }
     }
 
-    func setContent(_ path: URL, replacement: [String : String]) throws {
+    static func saveImage(_ image: NSImage, atUrl url: URL) {
+        guard
+            let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        else { return } // TODO: handle error
+        let newRep = NSBitmapImageRep(cgImage: cgImage)
+        newRep.size = image.size // if you want the same size
+        guard
+            let pngData = newRep.representation(using: .png, properties: [:])
+        else { return } // TODO: handle error
+        do {
+            try pngData.write(to: url)
+        }
+        catch {
+            print("error saving: \(error)")
+        }
+    }
+
+    func setContent(_ path: URL, replacement: [String : String], run: () throws -> () = {}) throws {
         var content = try String(contentsOf: path, encoding: .utf8)
+        let copy = content
 
         for (key, value) in replacement {
             if #available(macOS 13.0, *) {
@@ -86,19 +104,35 @@ class IconManager: ObservableObject {
         }
 
         try content.write(to: path, atomically: true, encoding: .utf8)
+
+        print(content)
+
+        try run()
+
+//        try copy.write(to: path, atomically: true, encoding: .utf8)
     }
 
-    func setHelperToolContent(path: String) throws {
-        let helperToolURL = URL.documents.universalappending(path: "fileicon")
-        var content = try String(contentsOf: helperToolURL, encoding: .utf8)
+    func setImage(_ image: NSImage, app: LaunchPadManagerDBHelper.AppInfo) throws {
+        let imageURL = URL.documents.universalappending(path: "icon.png")
+#if DEBUG
+        print(imageURL)
+#endif
 
-        if #available(macOS 13.0, *) {
-            content.replace("%path", with: path)
-        } else {
-            content = content.replace(target: "%path", withString: path)
+        if FileManager.default.fileExists(atPath: imageURL.universalPath()) {
+            try FileManager.default.removeItem(at: imageURL)
         }
 
-        try content.write(to: helperToolURL, atomically: true, encoding: .utf8)
+        Self.saveImage(image, atUrl: imageURL)
+
+        let helperPath = URL.documents.universalappending(path: "helper.sh")
+
+        let fileiconPath = URL.documents.universalappending(path: "fileicon")
+
+        try setContent(helperPath, replacement: ["fileicon" : fileiconPath.universalPath(),
+                                             "app" : app.url.universalPath(),
+                                             "image" : imageURL.universalPath()]){
+            try runHelperTool()
+        }
     }
 
     func findSearchedImage(_ search: String) -> [LaunchPadManagerDBHelper.AppInfo] {
@@ -150,8 +184,8 @@ class IconManager: ObservableObject {
     }
 
     func runHelperTool() throws {
-        let helperToolURL = URL.documents.universalappending(path: "chmodHelper.sh")
-        try Self.safeShell("./\(helperToolURL.universalPath())")
+        let helperToolURL = URL.documents.universalappending(path: "helper.sh")
+        print(try Self.safeShell("sudo \(helperToolURL.universalPath())"))
     }
 
     @discardableResult

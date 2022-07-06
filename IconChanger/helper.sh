@@ -1,1 +1,1 @@
-sudo %fileicon set %app %image
+sudo '%fileicon' set '%app' '%image'
