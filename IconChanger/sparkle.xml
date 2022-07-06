@@ -1,9 +1,15 @@
-<item>
-    <title>Version 1.2.2</title>
-    <link>https://github.com/underthestars-zhy/IconChanger</link>
-    <sparkle:version>1.2.2</sparkle:version>
-    <pubDate>Wed, 06 Jul 2022 20:18:00 +0800</pubDate>
-    <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.2/IconChanger.2022-07-06.20-02-40.zip"
-    sparkle:edSignature="74g/XLXsA/wE4qqKF+oatr3PQ9RNP3jTbZVCy/cFsqgxqnIV2cSn/2jKHSPGta5DU+csYaThNECUaBRwp56CAg==" length="7357941"
-    type="application/octet-stream"/>
-</item>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>IconChanger</title>
+        <item>
+            <title>Version 1.2.2</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>1.2.2</sparkle:version>
+            <pubDate>Wed, 06 Jul 2022 20:18:00 +0800</pubDate>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.2/IconChanger.2022-07-06.20-02-40.zip"
+            sparkle:edSignature="74g/XLXsA/wE4qqKF+oatr3PQ9RNP3jTbZVCy/cFsqgxqnIV2cSn/2jKHSPGta5DU+csYaThNECUaBRwp56CAg==" length="7357941"
+            type="application/octet-stream"/>
+        </item>
+    </channel>
+  </rss>
