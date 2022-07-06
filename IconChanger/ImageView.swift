@@ -25,7 +25,6 @@ struct ImageView: View {
                     do {
                         try IconManager.shared.setHelperToolContent(path: setPath.url.universalPath())
                         try IconManager.shared.runHelperTool()
-                        try IconManager.shared.recoverHelpTool()
                         NSWorkspace.shared.setIcon(nsimage, forFile: setPath.url.universalPath())
                         presentationMode.wrappedValue.dismiss()
                     } catch {
