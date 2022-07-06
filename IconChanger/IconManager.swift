@@ -109,7 +109,7 @@ class IconManager: ObservableObject {
 
         try run()
 
-//        try copy.write(to: path, atomically: true, encoding: .utf8)
+        try copy.write(to: path, atomically: true, encoding: .utf8)
     }
 
     func setImage(_ image: NSImage, app: LaunchPadManagerDBHelper.AppInfo) throws {
@@ -185,7 +185,7 @@ class IconManager: ObservableObject {
 
     func runHelperTool() throws {
         let helperToolURL = URL.documents.universalappending(path: "helper.sh")
-        print(try Self.safeShell("sudo \(helperToolURL.universalPath())"))
+        try Self.safeShell("sudo \(helperToolURL.universalPath())")
     }
 
     @discardableResult
