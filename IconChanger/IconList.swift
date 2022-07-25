@@ -23,85 +23,11 @@ struct IconList: View {
             LazyVGrid(columns: rules) {
                 if !searchText.isEmpty {
                     ForEach(iconManager.findSearchedImage(searchText), id: \.url) { app in
-                        VStack {
-                            Button {
-                                setPath = app
-                            } label: {
-                                Image(nsImage: NSWorkspace.shared.icon(forFile: app.url.universalPath()))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(.bottom)
-                            }
-                            .buttonStyle(BorderlessButtonStyle())
-
-                            Text(app.name)
-                                .multilineTextAlignment(.center)
-                        }
-                        .contextMenu {
-                            Button("Copy path") {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
-                            }
-
-                            Button("Copy URL App Name") {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
-                            }
-
-                            Button("Set Alias") {
-                                setAlias = app.url.deletingPathExtension().lastPathComponent
-                            }
-
-                            Button("Remove Icon from Launchpad") {
-                                do {
-                                    try LaunchPadManagerDBHelper().removeApp(app)
-                                } catch {
-                                    print(error)
-                                }
-                            }
-                        }
-                        .padding()
+                        IconView(app: app, setPath: $setPath, searchText: $searchText, setAlias: $setAlias)
                     }
                 } else {
                     ForEach(iconManager.apps, id: \.url) { app in
-                        VStack {
-                            Button {
-                                setPath = app
-                            } label: {
-                                Image(nsImage: NSWorkspace.shared.icon(forFile: app.url.universalPath()))
-                                    .resizable()
-                                    .scaledToFit()
-                                    .padding(.bottom)
-                            }
-                            .buttonStyle(BorderlessButtonStyle())
-
-                            Text(app.name)
-                                .multilineTextAlignment(.center)
-                        }
-                        .contextMenu {
-                            Button("Copy path") {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
-                            }
-
-                            Button("Copy URL App Name") {
-                                NSPasteboard.general.clearContents()
-                                NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
-                            }
-
-                            Button("Set Alias") {
-                                setAlias = app.url.deletingPathExtension().lastPathComponent
-                            }
-
-                            Button("Remove Icon from Launchpad") {
-                                do {
-                                    try LaunchPadManagerDBHelper().removeApp(app)
-                                } catch {
-                                    print(error)
-                                }
-                            }
-                        }
-                        .padding()
+                        IconView(app: app, setPath: $setPath, searchText: $searchText, setAlias: $setAlias)
                     }
                 }
             }
@@ -138,8 +64,91 @@ struct IconList: View {
     }
 }
 
+struct IconView: View {
+    let app: LaunchPadManagerDBHelper.AppInfo
+    @Binding var setPath: LaunchPadManagerDBHelper.AppInfo?
+
+    @Binding var searchText: String
+    @Binding var setAlias: String?
+
+    var body: some View {
+        VStack {
+            Button {
+                setPath = app
+            } label: {
+                Image(nsImage: NSWorkspace.shared.icon(forFile: app.url.universalPath()))
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.bottom)
+            }
+            .buttonStyle(BorderlessButtonStyle())
+
+            Text(app.name)
+                .multilineTextAlignment(.center)
+        }
+        .onDrop(of: [.fileURL], delegate: MyDropDelegate(app: app))
+        .contextMenu {
+            Button("Copy path") {
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
+            }
+
+            Button("Copy URL App Name") {
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
+            }
+
+            Button("Set Alias") {
+                setAlias = app.url.deletingPathExtension().lastPathComponent
+            }
+
+            Button("Remove Icon from Launchpad") {
+                do {
+                    try LaunchPadManagerDBHelper().removeApp(app)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+        .padding()
+    }
+}
+
 extension String: Identifiable {
     public var id: String {
         self
+    }
+}
+
+struct MyDropDelegate: DropDelegate {
+    let app: LaunchPadManagerDBHelper.AppInfo
+
+    func validateDrop(info: DropInfo) -> Bool {
+        return info.hasItemsConforming(to: ["public.file-url"])
+    }
+
+    func performDrop(info: DropInfo) -> Bool {
+        if let item = info.itemProviders(for: ["public.file-url"]).first {
+            item.loadItem(forTypeIdentifier: "public.file-url", options: nil) { (urlData, error) in
+                Task {
+                    if let urlData = urlData as? Data {
+                        let url = NSURL(absoluteURLWithDataRepresentation: urlData, relativeTo: nil) as URL
+
+                        if let nsimage = NSImage(contentsOf: url) {
+                            do {
+                                try IconManager.shared.setImage(nsimage, app: app)
+                            } catch {
+                                fatalError(error.localizedDescription)
+                            }
+                        }
+                    }
+                }
+            }
+
+            return true
+
+        } else {
+            return false
+        }
     }
 }
