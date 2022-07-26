@@ -22,6 +22,8 @@ struct ChangeView: View {
 
     @StateObject var iconManager = IconManager.shared
 
+    @State var importImage = false
+
     var body: some View {
         TabView {
             ScrollView(showsIndicators: false) {
@@ -63,6 +65,12 @@ struct ChangeView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
+
+            ToolbarItem(placement: .automatic) {
+                Button("Choose from local") {
+                    importImage.toggle()
+                }
+            }
         }
         .frame(width: 500, height: 400)
         .onAppear {
@@ -71,6 +79,7 @@ struct ChangeView: View {
         .task {
             do {
                 icons = try await iconManager.getIcons(setPath)
+                print(icons)
             } catch {
                 print(error)
             }
