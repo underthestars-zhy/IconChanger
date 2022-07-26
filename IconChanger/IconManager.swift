@@ -165,8 +165,6 @@ class IconManager: ObservableObject {
         let urlName = AliasName.getNames(for: app.url.deletingPathExtension().lastPathComponent) ?? app.url.deletingPathExtension().lastPathComponent
         let bundleName = try getAppBundleName(app)
 
-        print(appName, urlName, bundleName)
-
         var urls = [URL]()
 
         urls.append(contentsOf: try await MyQueryRequestController().sendRequest(appName))
@@ -174,8 +172,6 @@ class IconManager: ObservableObject {
         if let bundleName {
             urls.append(contentsOf: try await MyQueryRequestController().sendRequest(bundleName))
         }
-
-        print(urls)
 
         return Set(urls).map { $0 }
     }

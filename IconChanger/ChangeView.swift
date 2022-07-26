@@ -58,6 +58,23 @@ struct ChangeView: View {
                 Text("Local")
             }
         }
+        .fileImporter(isPresented: $importImage, allowedContentTypes: [.image, .icns]) { result in
+            switch result {
+            case .success(let url):
+                if url.startAccessingSecurityScopedResource() {
+                    if let nsimage = NSImage(contentsOf: url) {
+                        do {
+                            try IconManager.shared.setImage(nsimage, app: setPath)
+                        } catch {
+                            fatalError(error.localizedDescription)
+                        }
+                    }
+                    url.stopAccessingSecurityScopedResource()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         .padding()
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
@@ -79,7 +96,6 @@ struct ChangeView: View {
         .task {
             do {
                 icons = try await iconManager.getIcons(setPath)
-                print(icons)
             } catch {
                 print(error)
             }

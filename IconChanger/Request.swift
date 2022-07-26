@@ -103,8 +103,6 @@ class MyQueryRequestController {
         let json = try JSON(data: data)
         let hits = json["hits"].arrayValue
 
-        print(json)
-
         return hits.map { json in
             (Foundation.URL(string: json["icnsUrl"].stringValue), json["downloads"].intValue)
         }.sorted { hit1, hit2 in
