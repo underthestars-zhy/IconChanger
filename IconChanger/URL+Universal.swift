@@ -9,26 +9,14 @@ import Foundation
 
 extension URL {
     func universalappending(path: String) -> Self {
-        if #available(macOS 13, *) {
-            return self.appending(component: path)
-        } else {
-            return self.appendingPathComponent(path)
-        }
+        return self.appendingPathComponent(path)
     }
 
     func universalPath() -> String {
-        if #available(macOS 13, *) {
-            return self.path().removingPercentEncoding ?? self.path()
-        } else {
-            return self.path.removingPercentEncoding ?? self.path
-        }
+        return self.path.removingPercentEncoding ?? self.path
     }
 
     init(universalFilePath: String) {
-        if #available(macOS 13, *) {
-            self.init(filePath: universalFilePath)
-        } else {
-            self.init(fileURLWithPath: universalFilePath)
-        }
+        self.init(fileURLWithPath: universalFilePath)
     }
 }

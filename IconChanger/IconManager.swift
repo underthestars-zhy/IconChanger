@@ -96,11 +96,7 @@ class IconManager: ObservableObject {
         let copy = content
 
         for (key, value) in replacement {
-            if #available(macOS 13.0, *) {
-                content.replace("%\(key)", with: value)
-            } else {
-                content = content.replace(target: "%\(key)", withString: value)
-            }
+            content = content.replace(target: "%\(key)", withString: value)
         }
 
         try content.write(to: path, atomically: true, encoding: .utf8)
