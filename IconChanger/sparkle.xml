@@ -20,5 +20,14 @@
             sparkle:edSignature="hKybzgKXgj7gnNhVIoLjn9aK3DtbTkucLZofokJO/gcMZ6YHiRnjfCDcLPuzK/D4/yb2347vf4FQC1w/Dc22Cg==" length="7372222"
             type="application/octet-stream"/>
         </item>
+        <item>
+            <title>Version 1.2.4</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>1.2.3</sparkle:version>
+            <pubDate>Mon, 24 Nov 2022 20:23:00 +0800</pubDate>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.4/IconChanger.2022-11-14.23-08-14.zip"
+            sparkle:edSignature="rWxtgjRcOtz9t9uRJfDhatnNU14CdAdvLv3snsZouoUs4XG2j0LcdAmJPQMzEnVxDsqNBL/e9MPbV0NkzmAyAA==" length="7470364"
+            type="application/octet-stream"/>
+        </item>
     </channel>
 </rss>
