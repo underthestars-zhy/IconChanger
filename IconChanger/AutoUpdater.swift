@@ -5,39 +5,35 @@
 //  Created by 朱浩宇 on 2021/3/14.
 //
 
-import Foundation
+import SwiftUI
 import Sparkle
-import os
 
-class AutoUpdater: NSObject {
+// This view model class publishes when new updates can be checked by the user
+final class CheckForUpdatesViewModel: ObservableObject {
+    @Published var canCheckForUpdates = false
 
-    // Using the SPUStandardUserDriver
-    let userDriver: SPUUserDriver = SPUStandardUserDriver(hostBundle: Bundle.main, delegate: nil)
+    init(updater: SPUUpdater) {
+        updater.publisher(for: \.canCheckForUpdates)
+            .assign(to: &$canCheckForUpdates)
+    }
+}
 
-    let updater: SPUUpdater?
+// This is the view for the Check for Updates menu item
+// Note this intermediate view is necessary for the disabled state on the menu item to work properly before Monterey.
+// See https://stackoverflow.com/questions/68553092/menu-not-updating-swiftui-bug for more info
+struct CheckForUpdatesView: View {
+    @ObservedObject private var checkForUpdatesViewModel: CheckForUpdatesViewModel
+    private let updater: SPUUpdater
 
+    init(updater: SPUUpdater) {
+        self.updater = updater
 
-    override init() {
-
-        // Create SPUUpdater instance and hook it up to Bundle.main
-        // and userDriver
-        self.updater = SPUUpdater(
-            hostBundle: Bundle.main, applicationBundle: Bundle.main, userDriver: userDriver, delegate: nil)
-        do {
-            try self.updater?.start()
-        } catch {
-            Logger().error("Failed to SPUUpdater")
-        }
+        // Create our view model for our CheckForUpdatesView
+        self.checkForUpdatesViewModel = CheckForUpdatesViewModel(updater: updater)
     }
 
-
-    func checkForUpdates() {
-        guard let updater = updater else {
-            Logger().error("updater was nil")
-            return
-        }
-
-        updater.checkForUpdates()
+    var body: some View {
+        Button("Check for Updates…", action: updater.checkForUpdates)
+            .disabled(!checkForUpdatesViewModel.canCheckForUpdates)
     }
-
 }

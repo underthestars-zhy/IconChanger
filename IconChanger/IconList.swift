@@ -88,21 +88,27 @@ struct IconView: View {
         }
         .onDrop(of: [.fileURL], delegate: MyDropDelegate(app: app))
         .contextMenu {
-            Button("Copy path") {
-                NSPasteboard.general.clearContents()
-                NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
-            }
+            Menu("Path") {
+                Button("Copy") {
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
+                }
 
-            Button("Copy URL App Name") {
-                NSPasteboard.general.clearContents()
-                NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
+                Button("Copy Path Name") {
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
+                }
+
+                Button("Show in the Finder") {
+                    NSWorkspace.shared.activateFileViewerSelecting([app.url])
+                }
             }
 
             Button("Set Alias") {
                 setAlias = app.url.deletingPathExtension().lastPathComponent
             }
 
-            Button("Remove Icon from Launchpad") {
+            Button("Remove the Icon from Launchpad") {
                 do {
                     try LaunchPadManagerDBHelper().removeApp(app)
                 } catch {

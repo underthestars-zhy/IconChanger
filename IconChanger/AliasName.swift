@@ -13,7 +13,8 @@ struct AliasName {
         "WebStorm Early Access Program": "WebStorm",
         "PyCharm Professional Edition": "PyCharm",
         "语雀": "yuque",
-        "System Settings": "Settings"
+        "System Settings": "Settings",
+        "Readwise_iBooks": "Readwise",
     ]
 
     static func getNames() -> [String: String] {
