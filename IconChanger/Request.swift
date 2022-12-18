@@ -101,6 +101,7 @@ class MyQueryRequestController {
         }
 
         let json = try JSON(data: data)
+        print(json)
         let hits = json["hits"].arrayValue
 
         return hits.map { json in

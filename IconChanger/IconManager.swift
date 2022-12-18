@@ -25,7 +25,9 @@ class IconManager: ObservableObject {
             do {
                 let helper = try LaunchPadManagerDBHelper()
 
-                apps = try helper.getAllAppInfos()
+                apps = try helper.getAllAppInfos().sorted(by: { info1, info2 in
+                    info1.name.compare(info2.name) == .orderedAscending
+                })
 
                 load = false
             } catch {
@@ -41,7 +43,9 @@ class IconManager: ObservableObject {
             do {
                 let helper = try LaunchPadManagerDBHelper()
 
-                apps = try helper.getAllAppInfos()
+                apps = try helper.getAllAppInfos().sorted(by: { info1, info2 in
+                    info1.name.compare(info2.name) == .orderedAscending
+                })
 
                 load = false
             } catch {

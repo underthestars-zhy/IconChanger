@@ -29,6 +29,9 @@ struct IconList: View {
                     ForEach(iconManager.apps, id: \.url) { app in
                         IconView(app: app, setPath: $setPath, searchText: $searchText, setAlias: $setAlias)
                     }
+                    .onAppear {
+                        print(iconManager.apps.map(\.name))
+                    }
                 }
             }
         }
@@ -89,12 +92,17 @@ struct IconView: View {
         .onDrop(of: [.fileURL], delegate: MyDropDelegate(app: app))
         .contextMenu {
             Menu("Path") {
+                Button("Copy the Name") {
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(app.name, forType: .string)
+                }
+
                 Button("Copy") {
                     NSPasteboard.general.clearContents()
                     NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
                 }
 
-                Button("Copy Path Name") {
+                Button("Copy the Path Name") {
                     NSPasteboard.general.clearContents()
                     NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
                 }
@@ -104,7 +112,7 @@ struct IconView: View {
                 }
             }
 
-            Button("Set Alias") {
+            Button("Set the Alias") {
                 setAlias = app.url.deletingPathExtension().lastPathComponent
             }
 
