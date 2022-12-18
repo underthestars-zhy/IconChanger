@@ -30,9 +30,9 @@
             type="application/octet-stream"/>
         </item>
         <item>
-            <title>Version 1.2.4</title>
+            <title>Version 1.2.5</title>
             <link>https://github.com/underthestars-zhy/IconChanger</link>
-            <sparkle:version>1.2.4</sparkle:version>
+            <sparkle:version>1.2.5</sparkle:version>
             <pubDate>Sun, 18 Dec 2022 12:38:00 +0800</pubDate>
             <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.4/IconChanger.2022-11-14.23-08-14.zip"
             sparkle:edSignature="B5/CkO9FGmh1yyL1soKVHg8Kq0MDvd3PARexD1NgMsxltJme3i8jScRtT1qByc21c4YvpUBsHqfc9o4NS7GiDA==" length="7497347"
