@@ -1,44 +1,32 @@
 //
-//  ImageView.swift
+//  LocalImageView.swift
 //  IconChanger
 //
-//  Created by 朱浩宇 on 2022/4/28.
+//  Created by 朱浩宇 on 2022/12/18.
 //
 
 import SwiftUI
 import LaunchPadManagerDBHelper
 
-struct ImageView: View {
-    let icon: IconRes
+struct LocalImageView: View {
+    let url: URL
     let setPath: LaunchPadManagerDBHelper.AppInfo
-    @State var preveiw: NSImage?
 
-    @Binding var showPro: Bool
+    @State var nsimage: NSImage?
 
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        if let preveiw = preveiw {
-            Image(nsImage: preveiw)
+        if let nsimage = nsimage {
+            Image(nsImage: nsimage)
                 .resizable()
                 .scaledToFit()
                 .onTapGesture {
-                    Task {
-                        do {
-                            showPro = true
-
-                            guard let nsimage = try await MyRequestController().sendRequest(icon.icnsUrl) else {
-                                showPro = false
-                                return
-                            }
-                            try IconManager.shared.setImage(nsimage, app: setPath)
-
-                            showPro = false
-                            presentationMode.wrappedValue.dismiss()
-
-                        } catch {
-                            print(error)
-                        }
+                    do {
+                        try IconManager.shared.setImage(nsimage, app: setPath)
+                        presentationMode.wrappedValue.dismiss()
+                    } catch {
+                        print(error)
                     }
                 }
         } else {
@@ -50,7 +38,7 @@ struct ImageView: View {
                 }
                 .task {
                     do {
-                        preveiw = try await MyRequestController().sendRequest(icon.lowResPngUrl)
+                        nsimage = try await MyRequestController().sendRequest(url)
                     } catch {
                         print(error)
                     }

@@ -14,8 +14,9 @@ struct ChangeView: View {
                  GridItem(.flexible(), alignment: .top),
                  GridItem(.flexible(), alignment: .top)]
 
-    @State var icons: [URL] = []
+    @State var icons: [IconRes] = []
     @State var inIcons: [URL] = []
+    @State var showProgress = false
     let setPath: LaunchPadManagerDBHelper.AppInfo
 
     @Environment(\.presentationMode) var presentationMode
@@ -32,12 +33,19 @@ struct ChangeView: View {
                         ProgressView()
                     }
                 } else {
-                    LazyVGrid(columns: rules) {
-                        ForEach(icons, id: \.self) { icon in
-                            ImageView(url: icon, setPath: setPath)
-                        }
+                    ZStack {
+                        LazyVGrid(columns: rules) {
+                            ForEach(icons, id: \.self) { icon in
+                                ImageView(icon: icon, setPath: setPath, showPro: $showProgress)
+                            }
 
-                        Spacer()
+                            Spacer()
+                        }
+                        .disabled(showProgress)
+
+                        if showProgress {
+                            ProgressView()
+                        }
                     }
                 }
             }
@@ -48,7 +56,7 @@ struct ChangeView: View {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: rules) {
                     ForEach(inIcons, id: \.self) { icon in
-                        ImageView(url: icon, setPath: setPath)
+                        LocalImageView(url: icon, setPath: setPath)
                     }
 
                     Spacer()

@@ -160,20 +160,20 @@ class IconManager: ObservableObject {
         return String(url[count..<endCount] ?? "")
     }
 
-    func getIcons(_ app: LaunchPadManagerDBHelper.AppInfo) async throws -> [URL] {
+    func getIcons(_ app: LaunchPadManagerDBHelper.AppInfo) async throws -> [IconRes] {
         let appName = app.name
         let urlName = AliasName.getNames(for: app.url.deletingPathExtension().lastPathComponent) ?? app.url.deletingPathExtension().lastPathComponent
         let bundleName = try getAppBundleName(app)
 
-        var urls = [URL]()
+        var res = [IconRes]()
 
-        urls.append(contentsOf: try await MyQueryRequestController().sendRequest(appName))
-        urls.append(contentsOf: try await MyQueryRequestController().sendRequest(urlName))
+        res.append(contentsOf: try await MyQueryRequestController().sendRequest(appName))
+        res.append(contentsOf: try await MyQueryRequestController().sendRequest(urlName))
         if let bundleName {
-            urls.append(contentsOf: try await MyQueryRequestController().sendRequest(bundleName))
+            res.append(contentsOf: try await MyQueryRequestController().sendRequest(bundleName))
         }
 
-        return Set(urls).map { $0 }
+        return Set(res).map { $0 }
     }
 
     func getAppBundleName(_ app: LaunchPadManagerDBHelper.AppInfo) throws -> String? {

@@ -14,6 +14,8 @@
 		900D1CF8281936C7007ABB12 /* FullDiskPermision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */; };
 		900D1CFA281938D6007ABB12 /* IconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF9281938D6007ABB12 /* IconList.swift */; };
 		9017B5F8294DBBA9005709C6 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9017B5F7294DBBA9005709C6 /* Sparkle */; };
+		9017B5FA294ED626005709C6 /* IconRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017B5F9294ED626005709C6 /* IconRes.swift */; };
+		9017B5FC294EDAB4005709C6 /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017B5FB294EDAB4005709C6 /* LocalImageView.swift */; };
 		9053434F286B2A6800237F98 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053434E286B2A6800237F98 /* AutoUpdater.swift */; };
 		90534352286C8BDA00237F98 /* fileicon in Resources */ = {isa = PBXBuildFile; fileRef = 90534351286C8BDA00237F98 /* fileicon */; };
 		9053438B287550C200237F98 /* helper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9053438A287534C300237F98 /* helper.sh */; };
@@ -44,6 +46,8 @@
 		900D1CEF281934C8007ABB12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskPermision.swift; sourceTree = "<group>"; };
 		900D1CF9281938D6007ABB12 /* IconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconList.swift; sourceTree = "<group>"; };
+		9017B5F9294ED626005709C6 /* IconRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRes.swift; sourceTree = "<group>"; };
+		9017B5FB294EDAB4005709C6 /* LocalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageView.swift; sourceTree = "<group>"; };
 		9053434D286B2A2900237F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9053434E286B2A6800237F98 /* AutoUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoUpdater.swift; sourceTree = "<group>"; };
 		90534350286B441900237F98 /* sparkle.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = sparkle.xml; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				90B57C21286ACBA700EE52D3 /* StringTest.playground */,
 				90534350286B441900237F98 /* sparkle.xml */,
 				9053438A287534C300237F98 /* helper.sh */,
+				9017B5F9294ED626005709C6 /* IconRes.swift */,
+				9017B5FB294EDAB4005709C6 /* LocalImageView.swift */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -241,7 +247,9 @@
 				900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */,
 				908A792C281A759A00951B15 /* SettingView.swift in Sources */,
 				908A790B281A128700951B15 /* Request.swift in Sources */,
+				9017B5FA294ED626005709C6 /* IconRes.swift in Sources */,
 				908A78FB2819640800951B15 /* IconManager.swift in Sources */,
+				9017B5FC294EDAB4005709C6 /* LocalImageView.swift in Sources */,
 				90B57B8028695BDF00EE52D3 /* AliasName.swift in Sources */,
 				900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */,
 				900D1CFA281938D6007ABB12 /* IconList.swift in Sources */,

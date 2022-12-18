@@ -55,7 +55,7 @@ class MyRequestController {
 }
 
 class MyQueryRequestController {
-    func sendRequest(_ query: String) async throws -> [URL] {
+    func sendRequest(_ query: String) async throws -> [IconRes] {
         /* Configure session, choose between:
          * defaultSessionConfiguration
          * ephemeralSessionConfiguration
@@ -102,13 +102,21 @@ class MyQueryRequestController {
 
         let json = try JSON(data: data)
         print(json)
-        let hits = json["hits"].arrayValue
+        let res = json["hits"].arrayValue.compactMap { hit in
+            if let lowResPngUrl = hit["lowResPngUrl"].url, let icnsUrl = hit["icnsUrl"].url {
+                return IconRes(appName: hit["appName"].stringValue, icnsUrl: icnsUrl, lowResPngUrl: lowResPngUrl, downloads: hit["downloads"].intValue)
+            } else {
+                return nil
+            }
+        }
 
-        return hits.map { json in
-            (Foundation.URL(string: json["icnsUrl"].stringValue), json["downloads"].intValue)
-        }.sorted { hit1, hit2 in
-            hit1.1 > hit2.1
-        }.compactMap(\.0)
+        return res
+            .filter {
+                $0.appName.lowercased().replace(target: " ", withString: "").contains(query.lowercased().replace(target: " ", withString: ""))
+            }
+            .sorted { res1, res2 in
+                res1.downloads > res2.downloads
+            }
     }
 
     func qeuryMix(_ query: String) -> String {

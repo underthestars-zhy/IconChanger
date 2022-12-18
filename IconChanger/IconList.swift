@@ -29,9 +29,6 @@ struct IconList: View {
                     ForEach(iconManager.apps, id: \.url) { app in
                         IconView(app: app, setPath: $setPath, searchText: $searchText, setAlias: $setAlias)
                     }
-                    .onAppear {
-                        print(iconManager.apps.map(\.name))
-                    }
                 }
             }
         }
