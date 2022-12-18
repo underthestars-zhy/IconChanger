@@ -101,7 +101,6 @@ class MyQueryRequestController {
         }
 
         let json = try JSON(data: data)
-        print(json)
         let res = json["hits"].arrayValue.compactMap { hit in
             if let lowResPngUrl = hit["lowResPngUrl"].url, let icnsUrl = hit["icnsUrl"].url {
                 return IconRes(appName: hit["appName"].stringValue, icnsUrl: icnsUrl, lowResPngUrl: lowResPngUrl, downloads: hit["downloads"].intValue)
