@@ -88,12 +88,12 @@ struct IconView: View {
         }
         .onDrop(of: [.fileURL], delegate: MyDropDelegate(app: app))
         .contextMenu {
+            Button("Copy the Name") {
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(app.name, forType: .string)
+            }
+            
             Menu("Path") {
-                Button("Copy the Name") {
-                    NSPasteboard.general.clearContents()
-                    NSPasteboard.general.setString(app.name, forType: .string)
-                }
-
                 Button("Copy") {
                     NSPasteboard.general.clearContents()
                     NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
