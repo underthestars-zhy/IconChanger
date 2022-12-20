@@ -111,6 +111,7 @@ class MyQueryRequestController {
 
         return res
             .filter {
+                // TODO: Improve it (remove (),':) Photoshop (Beta) -> Photoshop Beta
                 $0.appName.lowercased().replace(target: " ", withString: "").contains(query.lowercased().replace(target: " ", withString: ""))
             }
             .sorted { res1, res2 in

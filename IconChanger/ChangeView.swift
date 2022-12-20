@@ -44,6 +44,7 @@ struct ChangeView: View {
                         .disabled(showProgress)
 
                         if showProgress {
+                            //TODO: Make this better
                             ProgressView()
                         }
                     }

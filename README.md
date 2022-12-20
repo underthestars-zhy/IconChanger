@@ -34,3 +34,8 @@ Vert sorry to tell, but currtely we cannot change the icon of System Apps. Becau
 2. Download the fork
 3. Open it in the xcode (>13.3)
 4. Start contibution
+
+## Acknowledgement
+
+* [macOSIcon](https://macosicons.com/#/)
+* [fileiocn](https://github.com/mklement0/fileicon)
