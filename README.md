@@ -26,7 +26,7 @@ IconChanger is an app that can change you app's icon. It simplifies your icon ch
 
 ## About System App
 
-Vert sorry to tell, but currtely we cannot change the icon of System Apps. Because of the SIP, users or root cannot write things to this kind of apps. And the idea of Bridge App need to change the `Info.plist`, so it will not work.
+Very sorry to say, but currently, we cannot change the icon of System Apps. Because of the SIP, users or root cannot write things to this app. And the idea of the Bridge App needs to change the `Info.plist`, so it will not work.
 
 ## How to contribute
 
