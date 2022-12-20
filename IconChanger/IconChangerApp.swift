@@ -18,7 +18,7 @@ struct IconChangerApp: App {
         // This is where you can also pass an updater delegate if you need one
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     }
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
