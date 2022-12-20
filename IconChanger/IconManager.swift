@@ -15,42 +15,31 @@ class IconManager: ObservableObject {
     @Published var icons = [(String, String)]()
     @Published var apps: [LaunchPadManagerDBHelper.AppInfo] = []
 
-    @Published var load = true
-
     init() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(refresh), name: NSWindow.didBecomeKeyNotification, object: nil)
 
-        Task {
-            do {
-                let helper = try LaunchPadManagerDBHelper()
+        do {
+            let helper = try LaunchPadManagerDBHelper()
 
-                apps = try helper.getAllAppInfos().sorted(by: { info1, info2 in
-                    info1.name.compare(info2.name) == .orderedAscending
-                })
+            apps = try helper.getAllAppInfos().sorted(by: { info1, info2 in
+                info1.name.compare(info2.name) == .orderedAscending
+            })
 
-                load = false
-            } catch {
-                print(error)
-            }
+        } catch {
+            print(error)
         }
     }
 
     @objc func refresh() {
-        Task {
-            load = false
-            
-            do {
-                let helper = try LaunchPadManagerDBHelper()
+        do {
+            let helper = try LaunchPadManagerDBHelper()
 
-                apps = try helper.getAllAppInfos().sorted(by: { info1, info2 in
-                    info1.name.compare(info2.name) == .orderedAscending
-                })
-
-                load = false
-            } catch {
-                print(error)
-            }
+            apps = try helper.getAllAppInfos().sorted(by: { info1, info2 in
+                info1.name.compare(info2.name) == .orderedAscending
+            })
+        } catch {
+            print(error)
         }
     }
 

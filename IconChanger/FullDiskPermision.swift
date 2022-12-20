@@ -28,7 +28,9 @@ class FullDiskPermision: ObservableObject {
         do {
             hasPermision = !(try Data(contentsOf: url).isEmpty)
         } catch {
+#if DEBUG
             print(error)
+#endif
             hasPermision = false
         }
     }

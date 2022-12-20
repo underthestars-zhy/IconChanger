@@ -14,14 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         if fullDiskPermision.hasPermision {
-            Group {
-                if iconManager.load {
-                    ProgressView()
-                        .searchable(text: .constant(""))
-                } else {
-                    IconList()
-                }
-            }
+            IconList()
         } else {
             VStack {
                 Text("We Need Full Disk Access")

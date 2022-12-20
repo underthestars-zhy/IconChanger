@@ -30,7 +30,7 @@ struct IconChangerApp: App {
                 CheckForUpdatesView(updater: updaterController.updater)
             }
         }
-        
+
         Settings {
             SettingView()
         }
