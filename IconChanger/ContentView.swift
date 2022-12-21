@@ -15,6 +15,22 @@ struct ContentView: View {
     var body: some View {
         if fullDiskPermision.hasPermision {
             IconList()
+                .task {
+                    if helperToolVersion < Config.helperToolVersion {
+                        if #available(macOS 13.0, *) {
+                            try? await Task.sleep(until: .now + .seconds(1), clock: .suspending)
+                        } else {
+                            try? await Task.sleep(nanoseconds: NSEC_PER_SEC)
+                        }
+
+                        do {
+                            try iconManager.installHelperTool()
+                            helperToolVersion = Config.helperToolVersion
+                        } catch {
+                            fatalError(error.localizedDescription)
+                        }
+                    }
+                }
         } else {
             VStack {
                 Text("We Need Full Disk Access")
@@ -38,25 +54,14 @@ struct ContentView: View {
             }
             .task {
                 if #available(macOS 13.0, *) {
-                    try? await Task.sleep(until: .now + .seconds(1), clock: .suspending)
+                    try? await Task.sleep(for: .seconds(1))
+                } else {
+                    try? await Task.sleep(nanoseconds: NSEC_PER_SEC)
                 }
+
                 fullDiskPermision.check()
                 if !fullDiskPermision.hasPermision {
                     NSWorkspace.shared.openLocationService(for: .fullDisk)
-                }
-            }
-            .task {
-                if helperToolVersion < Config.helperToolVersion {
-                    if #available(macOS 13.0, *) {
-                        try? await Task.sleep(until: .now + .seconds(1), clock: .suspending)
-                    }
-                    
-                    do {
-                        try iconManager.installHelperTool()
-                        helperToolVersion = Config.helperToolVersion
-                    } catch {
-                        fatalError(error.localizedDescription)
-                    }
                 }
             }
         }
