@@ -3,10 +3,42 @@
     <channel>
         <title>IconChanger</title>
         <item>
+            <title>Version 1.2.2</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>1.2.2</sparkle:version>
+            <pubDate>Wed, 06 Jul 2022 20:18:00 +0800</pubDate>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.2/IconChanger.2022-07-06.20-02-40.zip"
+            sparkle:edSignature="74g/XLXsA/wE4qqKF+oatr3PQ9RNP3jTbZVCy/cFsqgxqnIV2cSn/2jKHSPGta5DU+csYaThNECUaBRwp56CAg==" length="7357941"
+            type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Version 1.2.3</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>1.2.3</sparkle:version>
+            <pubDate>Thu, 26 Jul 2022 20:23:00 +0800</pubDate>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.3/IconChanger.2022-07-26.20-21-11.zip" sparkle:edSignature="hKybzgKXgj7gnNhVIoLjn9aK3DtbTkucLZofokJO/gcMZ6YHiRnjfCDcLPuzK/D4/yb2347vf4FQC1w/Dc22Cg==" length="7372222" type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Version 1.2.4</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>1.2.4</sparkle:version>
+            <pubDate>Mon, 24 Nov 2022 20:23:00 +0800</pubDate>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.4/IconChanger.2022-11-14.23-08-14.zip" sparkle:edSignature="rWxtgjRcOtz9t9uRJfDhatnNU14CdAdvLv3snsZouoUs4XG2j0LcdAmJPQMzEnVxDsqNBL/e9MPbV0NkzmAyAA==" length="7470364" type="application/octet-stream"/>
+        </item>
+        <item>
+            <title>Version 1.2.5</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>1.2.5</sparkle:version>
+            <pubDate>Sun, 18 Dec 2022 12:38:00 +0800</pubDate>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.4/IconChanger.2022-11-14.23-08-14.zip" sparkle:edSignature="B5/CkO9FGmh1yyL1soKVHg8Kq0MDvd3PARexD1NgMsxltJme3i8jScRtT1qByc21c4YvpUBsHqfc9o4NS7GiDA==" length="7497347" type="application/octet-stream"/>
+        </item>
+        <item>
             <title>Version 1.2.6</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>15</sparkle:version>
+            <sparkle:shortVersionString>1.2.6</sparkle:shortVersionString>
             <pubDate>Wed, 21 Dec 2022 11:01:00 +0800</pubDate>
-            <sparkle:minimumSystemVersion>12.3</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.6/IconChanger.2022-12-21.10-57-32.zip" sparkle:version="15" sparkle:shortVersionString="1.2.6" sparkle:edSignature="k6GCl7T2iHiD7C4ZByQCP1pPgF6ZPDQUdt4s6aoGpICOsY+tUqkanMVWj17veSmHrg+u6qMQEF12oCgXAwjNAg==" length="7475852" type="application/octet-stream"/>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.6/IconChanger.2022-12-21.10-57-32.zip" sparkle:edSignature="k6GCl7T2iHiD7C4ZByQCP1pPgF6ZPDQUdt4s6aoGpICOsY+tUqkanMVWj17veSmHrg+u6qMQEF12oCgXAwjNAg==" length="7475852" type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
