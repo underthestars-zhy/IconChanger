@@ -37,7 +37,7 @@
             <link>https://github.com/underthestars-zhy/IconChanger</link>
             <sparkle:version>1.2.6</sparkle:version>
             <pubDate>Wed, 21 Dec 2022 11:01:00 +0800</pubDate>
-            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.6/IconChanger.2022-12-21.10-57-32.zip" sparkle:edSignature="k6GCl7T2iHiD7C4ZByQCP1pPgF6ZPDQUdt4s6aoGpICOsY+tUqkanMVWj17veSmHrg+u6qMQEF12oCgXAwjNAg==" length="7475852" type="application/octet-stream"/>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.6/IconChanger.2022-12-21.10-57-32.zip" sparkle:version="15" sparkle:shortVersionString="1.2.6" sparkle:edSignature="k6GCl7T2iHiD7C4ZByQCP1pPgF6ZPDQUdt4s6aoGpICOsY+tUqkanMVWj17veSmHrg+u6qMQEF12oCgXAwjNAg==" length="7475852" type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
