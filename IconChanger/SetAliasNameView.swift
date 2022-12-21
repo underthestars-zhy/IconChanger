@@ -29,7 +29,7 @@ struct SetAliasNameView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Finish") {
                     if text.isEmpty {
-                        AliasName.setName(raw, for: raw)
+                        AliasName.setEmpty(for: raw)
                     } else {
                         AliasName.setName(text, for: raw)
                     }

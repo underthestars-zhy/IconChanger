@@ -151,15 +151,21 @@ class IconManager: ObservableObject {
 
     func getIcons(_ app: LaunchPadManagerDBHelper.AppInfo) async throws -> [IconRes] {
         let appName = app.name
-        let urlName = AliasName.getNames(for: app.url.deletingPathExtension().lastPathComponent) ?? app.url.deletingPathExtension().lastPathComponent
+        let urlName = app.url.deletingPathExtension().lastPathComponent
         let bundleName = try getAppBundleName(app)
+        let aliasName = AliasName.getNames(for: app.url.deletingPathExtension().lastPathComponent)
 
         var res = [IconRes]()
 
         res.append(contentsOf: try await MyQueryRequestController().sendRequest(appName))
         res.append(contentsOf: try await MyQueryRequestController().sendRequest(urlName))
+        
         if let bundleName {
             res.append(contentsOf: try await MyQueryRequestController().sendRequest(bundleName))
+        }
+
+        if let aliasName {
+            res.append(contentsOf: try await MyQueryRequestController().sendRequest(aliasName))
         }
 
         return Set(res).map { $0 }

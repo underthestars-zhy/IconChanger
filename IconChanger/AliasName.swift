@@ -15,6 +15,10 @@ struct AliasName {
         "语雀": "yuque",
         "System Settings": "Settings",
         "Readwise_iBooks": "Readwise",
+        "Adobe Photoshop (Beta)": "Photoshop",
+        "Adobe Bridge (Beta)": "Bridge",
+        "Adobe Illustrator (Beta)": "Illustrator",
+        "Adobe Illustrator 2023": "Illustrator",
     ]
 
     static func getNames() -> [String: String] {
@@ -36,6 +40,19 @@ struct AliasName {
                 UserDefaults.standard.set(try JSONEncoder().encode(names), forKey: "AliasName")
             } else {
                 UserDefaults.standard.set(try JSONEncoder().encode([raw: name]), forKey: "AliasName")
+            }
+        } catch {
+            print(error)
+        }
+
+        UserDefaults.standard.synchronize()
+    }
+
+    static func setEmpty(for raw: String) {
+        do {
+            if let data = UserDefaults.standard.data(forKey: "AliasName"), var names = try? JSONDecoder().decode([String : String].self, from: data) {
+                names[raw] = nil
+                UserDefaults.standard.set(try JSONEncoder().encode(names), forKey: "AliasName")
             }
         } catch {
             print(error)

@@ -65,6 +65,8 @@ class MyQueryRequestController {
          */
         let query = qeuryMix(query)
 
+        print(query)
+
         let sessionConfig = URLSessionConfiguration.default
 
         /* Create session, and optionally set a URLSessionDelegate. */

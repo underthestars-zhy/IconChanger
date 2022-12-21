@@ -16,8 +16,6 @@
 		9017B5F8294DBBA9005709C6 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9017B5F7294DBBA9005709C6 /* Sparkle */; };
 		9017B5FA294ED626005709C6 /* IconRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017B5F9294ED626005709C6 /* IconRes.swift */; };
 		9017B5FC294EDAB4005709C6 /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017B5FB294EDAB4005709C6 /* LocalImageView.swift */; };
-		9017B6162951B514005709C6 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 9017B6152951B514005709C6 /* Sentry */; };
-		9017B6182951B514005709C6 /* Sentry-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9017B6172951B514005709C6 /* Sentry-Dynamic */; };
 		9017B61E295282ED005709C6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9017B61D295282ED005709C6 /* LICENSE */; };
 		9053434F286B2A6800237F98 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053434E286B2A6800237F98 /* AutoUpdater.swift */; };
 		90534352286C8BDA00237F98 /* fileicon in Resources */ = {isa = PBXBuildFile; fileRef = 90534351286C8BDA00237F98 /* fileicon */; };
@@ -82,11 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9017B6182951B514005709C6 /* Sentry-Dynamic in Frameworks */,
 				9017B5F8294DBBA9005709C6 /* Sparkle in Frameworks */,
 				9083CCE92867FDBD0093A1B2 /* SwiftyJSON in Frameworks */,
 				9083CCEC2867FDDD0093A1B2 /* LaunchPadManagerDBHelper in Frameworks */,
-				9017B6162951B514005709C6 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,8 +188,6 @@
 				9083CCE82867FDBD0093A1B2 /* SwiftyJSON */,
 				9083CCEB2867FDDD0093A1B2 /* LaunchPadManagerDBHelper */,
 				9017B5F7294DBBA9005709C6 /* Sparkle */,
-				9017B6152951B514005709C6 /* Sentry */,
-				9017B6172951B514005709C6 /* Sentry-Dynamic */,
 			);
 			productName = IconChanger;
 			productReference = 900D1CE5281934C7007ABB12 /* IconChanger.app */;
@@ -227,7 +221,6 @@
 				9083CCE72867FDBD0093A1B2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				9083CCEA2867FDDD0093A1B2 /* XCRemoteSwiftPackageReference "LaunchPadManagerDBHelper" */,
 				9017B5F6294DBBA9005709C6 /* XCRemoteSwiftPackageReference "Sparkle" */,
-				9017B6142951B514005709C6 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 			);
 			productRefGroup = 900D1CE6281934C7007ABB12 /* Products */;
 			projectDirPath = "";
@@ -425,7 +418,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuhaoyu.IconChanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -458,7 +451,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.2.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhuhaoyu.IconChanger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -499,14 +492,6 @@
 				minimumVersion = 2.3.0;
 			};
 		};
-		9017B6142951B514005709C6 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 		9083CCE72867FDBD0093A1B2 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -530,16 +515,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9017B5F6294DBBA9005709C6 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
-		};
-		9017B6152951B514005709C6 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9017B6142951B514005709C6 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
-		};
-		9017B6172951B514005709C6 /* Sentry-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9017B6142951B514005709C6 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = "Sentry-Dynamic";
 		};
 		9083CCE82867FDBD0093A1B2 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
