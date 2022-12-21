@@ -38,16 +38,16 @@ struct ContentView: View {
                     .padding()
 
                 VStack(alignment: .leading) {
-                    Text("1. Open Setting App")
-                    Text("2. Go to security")
-                    Text("3. Choose Full Disk Access")
-                    Text("4. Unlock")
-                    Text("5. Choose or add IconChanger")
-                    Text("6. Check th check box")
+                    Text("1. Open the System Setting App")
+                    Text("2. Go to the security")
+                    Text("3. Choose the Full Disk Access")
+                    Text("4. Unlock it")
+                    Text("5. Choose or add the IconChanger")
+                    Text("6. Check the check box")
                 }
                 .multilineTextAlignment(.leading)
 
-                Button("Check Access") {
+                Button("Check the Acessibilility") {
                     fullDiskPermision.check()
                 }
                 .padding()

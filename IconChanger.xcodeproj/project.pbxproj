@@ -505,7 +505,7 @@
 			repositoryURL = "https://github.com/underthestars-zhy/LaunchPadManagerDBHelper";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.9;
+				minimumVersion = 1.0.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
