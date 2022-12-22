@@ -40,5 +40,13 @@
             <pubDate>Wed, 21 Dec 2022 11:01:00 +0800</pubDate>
             <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.6/IconChanger.2022-12-21.10-57-32.zip" sparkle:edSignature="k6GCl7T2iHiD7C4ZByQCP1pPgF6ZPDQUdt4s6aoGpICOsY+tUqkanMVWj17veSmHrg+u6qMQEF12oCgXAwjNAg==" length="7475852" type="application/octet-stream"/>
         </item>
+        <item>
+            <title>Version 1.2.7</title>
+            <link>https://github.com/underthestars-zhy/IconChanger</link>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>1.2.7</sparkle:shortVersionString>
+            <pubDate>Thu, 21 Dec 2022 11:47:00 +0800</pubDate>
+            <enclosure url="https://github.com/underthestars-zhy/IconChanger/releases/download/v1.2.7/IconChanger.2022-12-22.11-45-17.zip" sparkle:edSignature="lNG4WQ/T6DUzC0PvrJXDKj+f8oPt6KgyskQ6KZPAwvDgg8mSkwYa1RS1WqHIfXXLnXHoiUa8H4KGWx3M8mCLBQ==" length="7484875" type="application/octet-stream"/>
+        </item>
     </channel>
 </rss>
