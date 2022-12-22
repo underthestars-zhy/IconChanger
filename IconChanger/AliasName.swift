@@ -19,6 +19,7 @@ struct AliasName {
         "Adobe Bridge (Beta)": "Bridge",
         "Adobe Illustrator (Beta)": "Illustrator",
         "Adobe Illustrator 2023": "Illustrator",
+        "PyCharm Community": "PyCharm",
     ]
 
     static func getNames() -> [String: String] {
