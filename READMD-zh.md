@@ -4,10 +4,6 @@ IconChanger is an app that can change you app's icon. It simplifies your icon ch
 <br><br>
 ![](./Github/Github-Iconchanger.png)
 
-<br>
-[中文版](./READMD-zh.md)
-<br>
-
 ## How to use
 
 1. Go to github release
