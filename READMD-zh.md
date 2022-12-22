@@ -1,50 +1,50 @@
 # IconChanger
 
-IconChanger is an app that can change you app's icon. It simplifies your icon changing process.
+[English](./READMD.md)
+
+IconChanger是一个可以更换App图标的应用程序。它简化了你更换图标的流程。
 <br><br>
 ![](./Github/Github-Iconchanger.png)
 
-## How to use
+## 如何使用
 
-1. Go to github release
-2. Download the latest app
-3. Move the App to the Application folder
+1. 前往GitHub的Release界面
+2. 下载最新版App
+3. 将App移动到应用程序文件夹
 
-## If IconChanger doens't show any icon for certain App
+## 如果IconChanger对于某些软件没有展示可替换图标
 
-1. Right click the app's icon
-2. Choose `Set the Alias Name`
-3. Set a alias name for it (Like Adobe Illustrator -> Illustrator)
-
-See #9 for more details
+1. 右键App图标
+2. 选择 `Set the Alias Name`
+3. 为这个App设置一个合适的别名 (例如 Adobe Illustrator -> Illustrator)
 
 
-## How to get query api (optional)
+## 如何获得 query api (可选择)
 
 ![](./Github/Api.png)
 
-1. Open the Safari
-2. Open the https://macosicons.com/#/
-3. Search anything
-4. Open the Devloper Tool
-5. Choose the Network tab
-6. Search the `algolianet`
-7. Copy the host like `p1txh7zfb3-3.algolianet.com`
-8. Open the IconChanger Setting
-9. Input the host.
+1. 打开Safari
+2. 打开https://macosicons.com/#/
+3. 搜索任意图标
+4. 打开开发者工具
+5. 选择网络标签栏
+6. 搜索 `algolianet`
+7. 复制链接类似于 `p1txh7zfb3-3.algolianet.com`
+8. 打开IconChanger的设置
+9. 输入链接
 
-## About System App
+## 关于系统App
 
-Very sorry to say, but currently, we cannot change the icon of System Apps. Because of the SIP, users or root cannot write things to this app. And the idea of the Bridge App needs to change the `Info.plist`, so it will not work.
+非常抱歉，目前我们无法更改系统应用程序的图标。由于 SIP，用户或 root 无法向此应用写入内容。而Bridge App的想法需要修改一下 `Info.plist`，所以是行不通的。
 
-## How to contribute
+## 如何贡献
 
-1. Fork the project
-2. Download the fork
-3. Open it in the xcode (>13.3)
-4. Start contibution
+1. Fork这个项目
+2. 下载
+3. 在Xcode13.3以上的版本打开
+4. 开始贡献吧
 
-## Acknowledgement
+## 承谢
 
 * [macOSIcon](https://macosicons.com/#/)
 * [fileiocn](https://github.com/mklement0/fileicon)

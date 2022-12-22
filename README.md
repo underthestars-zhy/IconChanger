@@ -1,12 +1,10 @@
 # IconChanger
 
+[中文版](./READMD-zh.md)
+
 IconChanger is an app that can change you app's icon. It simplifies your icon changing process.
 <br><br>
 ![](./Github/Github-Iconchanger.png)
-
-
-[中文版](./READMD-zh.md)
-
 
 ## How to use
 
@@ -19,8 +17,6 @@ IconChanger is an app that can change you app's icon. It simplifies your icon ch
 1. Right click the app's icon
 2. Choose `Set the Alias Name`
 3. Set a alias name for it (Like Adobe Illustrator -> Illustrator)
-
-See #9 for more details
 
 
 ## How to get query api (optional)
