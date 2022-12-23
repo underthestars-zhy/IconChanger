@@ -47,7 +47,7 @@ struct ContentView: View {
                 }
                 .multilineTextAlignment(.leading)
 
-                Button("Check the Acessibilility") {
+                Button("Check the Access Permition") {
                     fullDiskPermision.check()
                 }
                 .padding()

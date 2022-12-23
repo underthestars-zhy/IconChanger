@@ -1,6 +1,6 @@
 # IconChanger
 
-[English](./READMD.md)
+[English](./README.md) | [Version française](./README-fr.md)
 
 IconChanger是一个可以更换App图标的应用程序。它简化了你更换图标的流程。
 <br><br>

@@ -1,6 +1,6 @@
 # IconChanger
 
-[中文版](./READMD-zh.md)
+[中文版](./README-zh.md) | [Version française](./README-fr.md)
 
 IconChanger is an app that can change you app's icon. It simplifies your icon changing process.
 <br><br>
@@ -40,9 +40,9 @@ Very sorry to say, but currently, we cannot change the icon of System Apps. Beca
 ## How to contribute
 
 1. Fork the project
-2. Download the fork
-3. Open it in the xcode (>13.3)
-4. Start contibution
+2. Download the Fork
+3. Open it in the Xcode (>13.3)
+4. Start the Contibution
 
 ## Acknowledgement
 

@@ -93,7 +93,7 @@ struct ChangeView: View {
             }
 
             ToolbarItem(placement: .automatic) {
-                Button("Choose from local") {
+                Button("Choose from the Local") {
                     importImage.toggle()
                 }
             }

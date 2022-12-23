@@ -113,7 +113,7 @@ struct IconView: View {
                 setAlias = app.url.deletingPathExtension().lastPathComponent
             }
 
-            Button("Remove the Icon from Launchpad") {
+            Button("Remove the Icon from the Launchpad") {
                 do {
                     try LaunchPadManagerDBHelper().removeApp(app)
                 } catch {
