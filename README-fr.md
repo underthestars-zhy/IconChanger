@@ -2,49 +2,50 @@
 
 [English](./README.md) | [中文版](./README-zh.md) 
 
-IconChanger is an app that can change you app's icon. It simplifies your icon changing process.
+IconChanger vous permet de changer les icônes de vos applications. Elle simplifie votre processus de changement d'icône.
 <br><br>
 ![](./Github/Github-Iconchanger.png)
 
-## How to use
+## Comment l'utiliser ?
 
-1. Go to github release
-2. Download the latest app
-3. Move the App to the Application folder
+1. Allez aux "Releases" à la page du projet GitHub
+2. Téléchargez la dernière version
+3. Déplacez l'App vers votre dossier d'application
 
-## If IconChanger doens't show any icon for certain App
+## Si IconChanger ne vous fournit aucune icônes pour certaines Apps
 
-1. Right click the app's icon
-2. Choose `Set the Alias Name`
-3. Set a alias name for it (Like Adobe Illustrator -> Illustrator)
+1. Faites un clic droit sur l'application en question
+2. Choisissez `Définir un autre nom`
+3. Définissez un nom d'alias (genre Adobe Illustrator -> Illustrator)
 
 
-## How to get query api (optional)
+## Comment obtenir une API de requête (facultatif)
 
 ![](./Github/Api.png)
 
-1. Open the Safari
-2. Open the https://macosicons.com/#/
-3. Search anything
-4. Open the Devloper Tool
-5. Choose the Network tab
-6. Search the `algolianet`
-7. Copy the host like `p1txh7zfb3-3.algolianet.com`
-8. Open the IconChanger Setting
-9. Input the host.
+1. Ouvrez l'app Safari
+2. Ouvrez le site https://macosicons.com/#/
+3. Cherchez ce que vous voulez
+4. Ouvrez l'outil de développeur
+5. Choisissez l'onglet réseau
+6. Cherchez `algolianet`
+7. Copiez l'hôte, du genre `p1txh7zfb3-3.algolianet.com`
+8. Ouvrez les reglages d'IconChanger
+9. Collez l'hôte !
 
-## About System App
+## À propos des Apps Système
 
-Very sorry to say, but currently, we cannot change the icon of System Apps. Because of the SIP, users or root cannot write things to this app. And the idea of the Bridge App needs to change the `Info.plist`, so it will not work.
+Vraiment désolé de le dire, mais actuellement, nous ne pouvons pas modifier les icônes d'applications système. En raison du SIP, les utilisateurs ou le root ne peuvent pas écrire sur cette application. Et quand à l'application Bridge, elle doit modifier le «Info.plist», donc cela ne fonctionnerait pas.
 
-## How to contribute
+## Comment contribuer ?
 
-1. Fork the project
-2. Download the Fork
-3. Open it in the Xcode (>13.3)
-4. Start the Contibution
+1. Copiez le projet (Fork)
+2. Téléchargez-le
+3. Ouvrez-le dans Xcode (>13.3)
+4. Vous pouvez commencer la contribution !
 
-## Acknowledgement
+## Remerciments
 
 * [macOSIcon](https://macosicons.com/#/)
 * [fileiocn](https://github.com/mklement0/fileicon)
+* [Atom](https://github.com/atomtoto)

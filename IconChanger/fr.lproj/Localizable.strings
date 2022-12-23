@@ -6,26 +6,26 @@
   
 */
 
-"Unknown" = "Unknown";
-"We Need Full Disk Access" = "We Need Full Disk Access";
-"1. Open the System Setting App" = "1. Open the System Setting App";
-"2. Go to the security" = "2. Go to the security";
-"3. Choose the Full Disk Access" = "3. Choose the Full Disk Access";
-"4. Unlock it" = "4. Unlock it";
-"5. Choose or add the IconChanger" = "5. Choose or add the IconChanger";
-"6. Check the check box" = "6. Check the check box";
-"Check the Access Permition" = "Check the Access Permition";
-"Copy the Name" = "Copy the Name";
-"Path" = "Path";
-"Copy" = "Copy";
-"Copy the Path Name" = "Copy the Path Name";
-"Show in the Finder" = "Show in the Finder";
-"Set the Alias" = "Set the Alias";
-"Remove the Icon from the Launchpad" = "Remove the Icon from the Launchpad";
+"Unknown" = "Inconnu";
+"We Need Full Disk Access" = "IconChanger a besoin d'un accès complet au disque";
+"1. Open the System Setting App" = "1. Ouvrez les Réglages Système";
+"2. Go to the security" = "2. Allez à Confidentialité et Sécurité";
+"3. Choose the Full Disk Access" = "3. Cliquez sur Accès complet au disque";
+"4. Unlock it" = "4. Déverouillez-le si besoin";
+"5. Choose or add the IconChanger" = "5. Choisissez ou ajoutez IconChanger";
+"6. Check the check box" = "6. Cochez le truc vert";
+"Check the Access Permition" = "Verifier si l'accès complet est activé";
+"Copy the Name" = "Copier le nom";
+"Path" = "App";
+"Copy" = "Copier";
+"Copy the Path Name" = "Copier le Chemin d'accès";
+"Show in the Finder" = "Afficher dans le Finder";
+"Set the Alias" = "Définir un autre nom";
+"Remove the Icon from the Launchpad" = "Supprimer du Launchpad";
 "macOSIcon" = "macOSIcon"; // This is the name of the website. Maybe you can keep it.
 "Local" = "Local";
-"Cancel" = "Cancel";
-"Choose from the Local" = "Choose from the Local";
+"Cancel" = "Annuler";
+"Choose from the Local" = "Choisir depuis le Finder";
 "Api" = "Api";
-"Query Host: " = "Query Host: ";
-"Finish" = "Finish";
+"Query Host: " = "Hôte de requête : ";
+"Finish" = "Terminer";
