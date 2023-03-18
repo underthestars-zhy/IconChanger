@@ -44,27 +44,22 @@ class IconManager: ObservableObject {
     }
 
     func installHelperTool() throws {
-        guard let fileiconBundlePath = Bundle.main.path(forResource: "fileicon", ofType: nil) else { fatalError("Cannot get the sh file path") }
-        guard let helperBundlePath = Bundle.main.path(forResource: "helper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
-        guard let installHelperBundlePath = Bundle.main.path(forResource: "installHelper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
-
-        let fileiconPath = URL.documents.universalappending(path: "fileicon")
-        let helperPath = URL.documents.universalappending(path: "helper.sh")
-
-        if FileManager.default.fileExists(atPath: fileiconPath.universalPath()) {
-            try FileManager.default.removeItem(at: fileiconPath)
+        let data=Data(bytes: HelperInstallerBytesArray, count: HelperInstallerBytesArray.count)
+        let temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory())
+        let installHelperURL = temporaryDirectoryURL.appendingPathComponent("\(NSUUID().uuidString).sh")
+        
+        try data.write(to: installHelperURL)
+        
+        let installHelperPath:String
+        if #available(macOS 13.0, *) {
+            installHelperPath=installHelperURL.path(percentEncoded: false)
+        } else {
+            installHelperPath=installHelperURL.path
         }
-
-        if FileManager.default.fileExists(atPath: helperPath.universalPath()) {
-            try FileManager.default.removeItem(at: helperPath)
-        }
-
-        try FileManager.default.copyItem(at: URL(universalFilePath: fileiconBundlePath), to: fileiconPath)
-        try FileManager.default.copyItem(at: URL(universalFilePath: helperBundlePath), to: helperPath)
-
-        try setContent(URL(universalFilePath: installHelperBundlePath), replacement: ["path" : helperPath.universalPath(), "fileicon": fileiconPath.universalPath()]) {
-            NSAppleScript(source: "do shell script \"chmod +x '\(installHelperBundlePath)' && sudo '\(installHelperBundlePath)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
-        }
+        let helperDirectoryPath=URL.documents.universalPath()
+        NSAppleScript(source: "do shell script \"chmod +x '\(installHelperPath)' &&  '\(installHelperPath)' '\(helperDirectoryPath)' ; rm '\(installHelperPath)' \" with administrator privileges")!.executeAndReturnError(nil)
+    
+        
     }
 
     static func saveImage(_ image: NSImage, atUrl url: URL) {
@@ -84,25 +79,9 @@ class IconManager: ObservableObject {
         }
     }
 
-    func setContent(_ path: URL, replacement: [String : String], run: () throws -> () = {}) throws {
-        var content = try String(contentsOf: path, encoding: .utf8)
-        let copy = content
-
-        for (key, value) in replacement {
-            content = content.replace(target: "%\(key)", withString: value)
-        }
-
-        try content.write(to: path, atomically: true, encoding: .utf8)
-
-        print(content)
-
-        try run()
-
-        try copy.write(to: path, atomically: true, encoding: .utf8)
-    }
-
     func setImage(_ image: NSImage, app: LaunchPadManagerDBHelper.AppInfo) throws {
-        let imageURL = URL.documents.universalappending(path: "icon.png")
+        let imageURL=FileManager.default.urls(for: FileManager.SearchPathDirectory.cachesDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first!.universalappending(path: "IconChanger.png")
+        
 #if DEBUG
         print(imageURL)
 #endif
@@ -113,15 +92,7 @@ class IconManager: ObservableObject {
 
         Self.saveImage(image, atUrl: imageURL)
 
-        let helperPath = URL.documents.universalappending(path: "helper.sh")
-
-        let fileiconPath = URL.documents.universalappending(path: "fileicon")
-
-        try setContent(helperPath, replacement: ["fileicon" : fileiconPath.universalPath(),
-                                             "app" : app.url.universalPath(),
-                                             "image" : imageURL.universalPath()]){
-            try runHelperTool()
-        }
+        try runHelperTool(appPath: app.url.universalPath(), imagePath: imageURL.universalPath())
     }
 
     func findSearchedImage(_ search: String) -> [LaunchPadManagerDBHelper.AppInfo] {
@@ -178,9 +149,9 @@ class IconManager: ObservableObject {
         return (plist?["CFBundleDisplayName"] as? String) ?? (plist?["CFBundleName"] as? String)
     }
 
-    func runHelperTool() throws {
+    func runHelperTool(appPath: String,imagePath: String) throws {
         let helperToolURL = URL.documents.universalappending(path: "helper.sh")
-        try Self.safeShell("sudo \(helperToolURL.universalPath())")
+        try Self.safeShell("sudo '\(helperToolURL.universalPath())' '\(appPath)' '\(imagePath)'")
     }
 
     @discardableResult

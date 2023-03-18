@@ -18,8 +18,6 @@
 		9017B5FC294EDAB4005709C6 /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017B5FB294EDAB4005709C6 /* LocalImageView.swift */; };
 		9017B61E295282ED005709C6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9017B61D295282ED005709C6 /* LICENSE */; };
 		9053434F286B2A6800237F98 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053434E286B2A6800237F98 /* AutoUpdater.swift */; };
-		90534352286C8BDA00237F98 /* fileicon in Resources */ = {isa = PBXBuildFile; fileRef = 90534351286C8BDA00237F98 /* fileicon */; };
-		9053438B287550C200237F98 /* helper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9053438A287534C300237F98 /* helper.sh */; };
 		907AC4F92954038600F9F0F9 /* README-zh.md in Resources */ = {isa = PBXBuildFile; fileRef = 907AC4F82954038600F9F0F9 /* README-zh.md */; };
 		907AC4FC2955357B00F9F0F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 907AC4FE2955357B00F9F0F9 /* Localizable.strings */; };
 		907AC5012955363800F9F0F9 /* README-fr.md in Resources */ = {isa = PBXBuildFile; fileRef = 907AC5002955363800F9F0F9 /* README-fr.md */; };
@@ -39,7 +37,7 @@
 		90B57B8228697BEF00EE52D3 /* SetAliasNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57B8128697BEF00EE52D3 /* SetAliasNameView.swift */; };
 		90B57C1B286AA2B400EE52D3 /* URL+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1A286AA2B400EE52D3 /* URL+Document.swift */; };
 		90B57C1D286AA2F800EE52D3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1C286AA2F800EE52D3 /* Config.swift */; };
-		90B57C20286AB90700EE52D3 /* installHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 90B57C1F286AB90700EE52D3 /* installHelper.sh */; };
+		EC7D4DEF29C58BAD002954D2 /* HelperInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D4DEE29C58BAD002954D2 /* HelperInstaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +56,6 @@
 		9053434E286B2A6800237F98 /* AutoUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoUpdater.swift; sourceTree = "<group>"; };
 		90534350286B441900237F98 /* sparkle.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = sparkle.xml; sourceTree = "<group>"; };
 		90534351286C8BDA00237F98 /* fileicon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fileicon; sourceTree = "<group>"; };
-		9053438A287534C300237F98 /* helper.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = helper.sh; sourceTree = "<group>"; };
 		907AC4F82954038600F9F0F9 /* README-zh.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "README-zh.md"; sourceTree = "<group>"; };
 		907AC4FD2955357B00F9F0F9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		907AC4FF2955358A00F9F0F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -78,8 +75,7 @@
 		90B57C1A286AA2B400EE52D3 /* URL+Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Document.swift"; sourceTree = "<group>"; };
 		90B57C1C286AA2F800EE52D3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		90B57C1E286AA62300EE52D3 /* IconChanger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconChanger.entitlements; sourceTree = "<group>"; };
-		90B57C1F286AB90700EE52D3 /* installHelper.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = installHelper.sh; sourceTree = "<group>"; };
-		90B57C21286ACBA700EE52D3 /* StringTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StringTest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EC7D4DEE29C58BAD002954D2 /* HelperInstaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperInstaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +117,7 @@
 		900D1CE7281934C7007ABB12 /* IconChanger */ = {
 			isa = PBXGroup;
 			children = (
+				EC7D4DEE29C58BAD002954D2 /* HelperInstaller.swift */,
 				9053434E286B2A6800237F98 /* AutoUpdater.swift */,
 				9053434D286B2A2900237F98 /* Info.plist */,
 				90B57C1E286AA62300EE52D3 /* IconChanger.entitlements */,
@@ -142,10 +139,7 @@
 				90B57C1A286AA2B400EE52D3 /* URL+Document.swift */,
 				90B57C1C286AA2F800EE52D3 /* Config.swift */,
 				90534351286C8BDA00237F98 /* fileicon */,
-				90B57C1F286AB90700EE52D3 /* installHelper.sh */,
-				90B57C21286ACBA700EE52D3 /* StringTest.playground */,
 				90534350286B441900237F98 /* sparkle.xml */,
-				9053438A287534C300237F98 /* helper.sh */,
 				9017B5F9294ED626005709C6 /* IconRes.swift */,
 				9017B5FB294EDAB4005709C6 /* LocalImageView.swift */,
 				907AC4FE2955357B00F9F0F9 /* Localizable.strings */,
@@ -185,6 +179,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 900D1CF4281934C8007ABB12 /* Build configuration list for PBXNativeTarget "IconChanger" */;
 			buildPhases = (
+				EC7D4DE629C56C72002954D2 /* ShellScript */,
 				900D1CE1281934C7007ABB12 /* Sources */,
 				900D1CE2281934C7007ABB12 /* Frameworks */,
 				900D1CE3281934C7007ABB12 /* Resources */,
@@ -248,11 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */,
-				90534352286C8BDA00237F98 /* fileicon in Resources */,
 				907AC4FC2955357B00F9F0F9 /* Localizable.strings in Resources */,
-				9053438B287550C200237F98 /* helper.sh in Resources */,
 				907AC4F92954038600F9F0F9 /* README-zh.md in Resources */,
-				90B57C20286AB90700EE52D3 /* installHelper.sh in Resources */,
 				900D1CF0281934C8007ABB12 /* Preview Assets.xcassets in Resources */,
 				908A7927281A5A4A00951B15 /* README.md in Resources */,
 				9017B61E295282ED005709C6 /* LICENSE in Resources */,
@@ -264,6 +256,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EC7D4DE629C56C72002954D2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/IconChanger/fileicon",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/installHelper.sh",
+				"$(SRCROOT)/IconChanger/HelperInstaller.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#  HelperInstaller.sh\n#  IconChanger\n#\n#  Created by ghostflyby pan on 2023/3/17.\n#  \n\ncat << INSTALL_HELPER > \"${DERIVED_FILE_DIR}/installHelper.sh\"\n#!/bin/sh\n\n# clean old helper files\nif [ -d ~/.iconchanger ];then\n    rm ~/.iconchanger/data/helper/helper.sh\n    rm ~/.iconchanger/data/helper/fileicon\n    rmdir ~/.iconchanger/data/helper\n    rmdir ~/.iconchanger/data/\n    rmdir ~/.iconchanger\nfi\n\n# clean old sudoer rule\nif grep '^ALL ALL=(ALL) NOPASSWD:.*iconchanger.*\\$' /private/etc/sudoers > /dev/null;then\n    sed -i .bak -e '/^ALL ALL=(ALL) NOPASSWD:.*iconchanger.*\\$/d' /private/etc/sudoers\nfi\n\n# make new helper dir if needed\nif [ ! -d \"\\$1\" ];then\n    mkdir -p \"\\$1\" || exit \\$?\nfi\n\necho \"$(base64 < \"${SRCROOT}/IconChanger/fileicon\")\" | base64 -d > \\$1/fileicon\n\n# generate helper script\nhelper_path=\"\\$1/helper.sh\"\necho \"'\\$1/fileicon'\"' set \\$1 \\$2' > \"\\$helper_path\"\n\n# chmod & chown\nchmod 744 \"\\$1\"/fileicon &&\nchmod 744 \"\\$helper_path\" ||\nexit \\$?\n\n# \\`ALL\\` users on \\`ALL\\` host can run as \\`(root)\\` the binary with same \\`sha256\\` summary of \\`\\$helper_path\\`\n# the \\`shasum\\` always prints the summary and file name, piping to \\`awk\\` to get only the summary part\necho ALL\\ ALL=\\(root\\) NOPASSWD:\\ sha256:\"\\$(shasum -a 256 \"\\$helper_path\" | awk '{print \\$1}')\"\\ \"\\$(echo \"\\$helper_path\"|sed 's/ /\\\\\\\\\\\\\\\\ /g')\" > /private/etc/sudoers.d/iconchanger\n\nINSTALL_HELPER\n\nxxd -i -n installHelper.sh \"${DERIVED_FILE_DIR}/installHelper.sh\" | sed '/unsigned int/d;s/{/[/g;s/}/]/g;s/unsigned char/let/g;s/\\[\\]/:[UInt8]/g;s/installHelper_sh/HelperInstallerBytesArray/g' > \"${SRCROOT}/IconChanger/HelperInstaller.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		900D1CE1281934C7007ABB12 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -274,6 +289,7 @@
 				90B57C1D286AA2F800EE52D3 /* Config.swift in Sources */,
 				900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */,
 				908A792C281A759A00951B15 /* SettingView.swift in Sources */,
+				EC7D4DEF29C58BAD002954D2 /* HelperInstaller.swift in Sources */,
 				908A790B281A128700951B15 /* Request.swift in Sources */,
 				9017B5FA294ED626005709C6 /* IconRes.swift in Sources */,
 				908A78FB2819640800951B15 /* IconManager.swift in Sources */,
@@ -432,7 +448,7 @@
 				CURRENT_PROJECT_VERSION = 17;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"IconChanger/Preview Content\"";
-				DEVELOPMENT_TEAM = 44BN78992X;
+				DEVELOPMENT_TEAM = 874K45Y28A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -465,7 +481,7 @@
 				CURRENT_PROJECT_VERSION = 17;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"IconChanger/Preview Content\"";
-				DEVELOPMENT_TEAM = 44BN78992X;
+				DEVELOPMENT_TEAM = 874K45Y28A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
