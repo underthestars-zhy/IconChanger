@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var fullDiskPermision = FullDiskPermision.shared
     @StateObject var iconManager = IconManager.shared
     @AppStorage("helperToolVersion") var helperToolVersion = 0
     
     var body: some View {
-        if fullDiskPermision.hasPermision {
             IconList()
                 .task {
                     if helperToolVersion < Config.helperToolVersion {
@@ -31,40 +29,6 @@ struct ContentView: View {
                         }
                     }
                 }
-        } else {
-            VStack {
-                Text("We Need Full Disk Access")
-                    .font(.largeTitle.bold())
-                    .padding()
-
-                VStack(alignment: .leading) {
-                    Text("1. Open the System Setting App")
-                    Text("2. Go to the security")
-                    Text("3. Choose the Full Disk Access")
-                    Text("4. Unlock it")
-                    Text("5. Choose or add the IconChanger")
-                    Text("6. Check the check box")
-                }
-                .multilineTextAlignment(.leading)
-
-                Button("Check the Access Permition") {
-                    fullDiskPermision.check()
-                }
-                .padding()
-            }
-            .task {
-                if #available(macOS 13.0, *) {
-                    try? await Task.sleep(for: .seconds(1))
-                } else {
-                    try? await Task.sleep(nanoseconds: NSEC_PER_SEC)
-                }
-
-                fullDiskPermision.check()
-                if !fullDiskPermision.hasPermision {
-                    NSWorkspace.shared.openLocationService(for: .fullDisk)
-                }
-            }
-        }
     }
 }
 
@@ -85,7 +49,6 @@ extension NSWorkspace {
         case calendars = "x-apple.systempreferences:com.apple.preference.security?Privacy_Calendars"
         case reminders = "x-apple.systempreferences:com.apple.preference.security?Privacy_Reminders"
         case photos = "x-apple.systempreferences:com.apple.preference.security?Privacy_Photos"
-        case fullDisk = "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
     }
 
     func openLocationService(for type: SystemServiceType) {

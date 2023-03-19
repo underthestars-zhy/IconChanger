@@ -10,7 +10,6 @@ import Sparkle
 
 @main
 struct IconChangerApp: App {
-    @StateObject var fullDiskPermision = FullDiskPermision.shared
     private let updaterController: SPUStandardUpdaterController
 
     init() {
@@ -22,8 +21,7 @@ struct IconChangerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(minWidth: fullDiskPermision.hasPermision ? 750 : 500, minHeight: fullDiskPermision.hasPermision ? 500 : 300)
-                .animation(.easeInOut, value: fullDiskPermision.hasPermision)
+                .frame(minWidth: 750, minHeight: 500)
         }
         .commands {
             CommandGroup(after: .appInfo) {
