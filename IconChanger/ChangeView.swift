@@ -82,15 +82,9 @@ struct ChangeView: View {
                         ZStack {
                             LazyVGrid(columns: columns, alignment: .leading) {
                                 ForEach(icons, id: \.self) { icon in
-                                    ImageView(icon: icon, setPath: setPath, showPro: $showProgress)
+                                    ImageView(icon: icon, setPath: setPath)
                                             .frame(width: imageSize, height: imageSize) // Make sure the image view fits in the grid
                                 }
-                            }
-                                    .disabled(showProgress)
-
-                            if showProgress {
-                                ProgressView()
-                                        .progressViewStyle(AppStoreProgressViewStyle())
                             }
                         }
                     }

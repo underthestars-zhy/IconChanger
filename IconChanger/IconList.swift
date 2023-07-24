@@ -23,7 +23,9 @@ struct IconList: View {
     var body: some View {
         NavigationView {
             List(selection: $selectedApp) {
-                ForEach(iconManager.apps, id: \.url) { app in
+                ForEach(iconManager.apps.filter { app in
+                    searchText.isEmpty || app.name.localizedStandardContains(searchText)
+                }, id: \.url) { app in
                     NavigationLink(destination: ChangeView(setPath: app),
                             tag: app,
                             selection: $selectedApp) {
@@ -66,7 +68,7 @@ struct IconList: View {
                 }
             }
                     .listStyle(SidebarListStyle())  // Use SidebarListStyle to create a sidebar look
-                    .frame(minWidth: 200, idealWidth: 250, maxWidth: 300) // Adjust the width to your liking
+                    .frame(minWidth: 200, idealWidth: 300) // Adjust the width to your liking
 
             // Display detail view when an app is selected, otherwise display placeholder
             if let app = selectedApp {

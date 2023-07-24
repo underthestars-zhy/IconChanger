@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684312FB180B32D3350C6687 /* ImageViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68431B5BF95B69F7A3E9C314 /* ImageViewCore.swift */; };
+		684314A1977FA2DF04BCD0F2 /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6843102ECDF4DE9417AD9634 /* LocalImageView.swift */; };
+		68431D584237DD997A7513DA /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68431AB7EEBD9DCD4429645F /* ImageView.swift */; };
 		900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CE8281934C7007ABB12 /* IconChangerApp.swift */; };
 		900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CEA281934C7007ABB12 /* ContentView.swift */; };
 		900D1CED281934C8007ABB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D1CEC281934C8007ABB12 /* Assets.xcassets */; };
@@ -15,7 +18,6 @@
 		900D1CFA281938D6007ABB12 /* IconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CF9281938D6007ABB12 /* IconList.swift */; };
 		9017B5F8294DBBA9005709C6 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 9017B5F7294DBBA9005709C6 /* Sparkle */; };
 		9017B5FA294ED626005709C6 /* IconRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017B5F9294ED626005709C6 /* IconRes.swift */; };
-		9017B5FC294EDAB4005709C6 /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017B5FB294EDAB4005709C6 /* LocalImageView.swift */; };
 		9017B61E295282ED005709C6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9017B61D295282ED005709C6 /* LICENSE */; };
 		9053434F286B2A6800237F98 /* AutoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9053434E286B2A6800237F98 /* AutoUpdater.swift */; };
 		90534352286C8BDA00237F98 /* fileicon in Resources */ = {isa = PBXBuildFile; fileRef = 90534351286C8BDA00237F98 /* fileicon */; };
@@ -30,7 +32,6 @@
 		908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79012819753E00951B15 /* String+RangeSubscript.swift */; };
 		908A79092819840D00951B15 /* ChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A79082819840D00951B15 /* ChangeView.swift */; };
 		908A790B281A128700951B15 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A790A281A128700951B15 /* Request.swift */; };
-		908A790D281A148000951B15 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A790C281A148000951B15 /* ImageView.swift */; };
 		908A7927281A5A4A00951B15 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 908A7926281A5A4A00951B15 /* README.md */; };
 		908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A7929281A5AE800951B15 /* Github-Iconchanger.png */; };
 		908A792C281A759A00951B15 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A792B281A759A00951B15 /* SettingView.swift */; };
@@ -43,7 +44,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6843102ECDF4DE9417AD9634 /* LocalImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalImageView.swift; sourceTree = "<group>"; };
 		684310CF2CFC89861988FEC0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		68431AB7EEBD9DCD4429645F /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		68431B5BF95B69F7A3E9C314 /* ImageViewCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewCore.swift; sourceTree = "<group>"; };
 		900D1CE5281934C7007ABB12 /* IconChanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IconChanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D1CE8281934C7007ABB12 /* IconChangerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangerApp.swift; sourceTree = "<group>"; };
 		900D1CEA281934C7007ABB12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +56,6 @@
 		900D1CF7281936C7007ABB12 /* FullDiskPermision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiskPermision.swift; sourceTree = "<group>"; };
 		900D1CF9281938D6007ABB12 /* IconList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconList.swift; sourceTree = "<group>"; };
 		9017B5F9294ED626005709C6 /* IconRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRes.swift; sourceTree = "<group>"; };
-		9017B5FB294EDAB4005709C6 /* LocalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageView.swift; sourceTree = "<group>"; };
 		9017B6192951F090005709C6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9017B61D295282ED005709C6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9053434D286B2A2900237F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -69,7 +72,6 @@
 		908A79012819753E00951B15 /* String+RangeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RangeSubscript.swift"; sourceTree = "<group>"; };
 		908A79082819840D00951B15 /* ChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeView.swift; sourceTree = "<group>"; };
 		908A790A281A128700951B15 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		908A790C281A148000951B15 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		908A7926281A5A4A00951B15 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		908A7929281A5AE800951B15 /* Github-Iconchanger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Github-Iconchanger.png"; sourceTree = "<group>"; };
 		908A792B281A759A00951B15 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		684315F39253A984576B3916 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				6843102ECDF4DE9417AD9634 /* LocalImageView.swift */,
+				68431AB7EEBD9DCD4429645F /* ImageView.swift */,
+				68431B5BF95B69F7A3E9C314 /* ImageViewCore.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
 		900D1CDC281934C7007ABB12 = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +138,6 @@
 				9053434E286B2A6800237F98 /* AutoUpdater.swift */,
 				9053434D286B2A2900237F98 /* Info.plist */,
 				90B57C1E286AA62300EE52D3 /* IconChanger.entitlements */,
-				908A790C281A148000951B15 /* ImageView.swift */,
 				908A79012819753E00951B15 /* String+RangeSubscript.swift */,
 				900D1CE8281934C7007ABB12 /* IconChangerApp.swift */,
 				900D1CEA281934C7007ABB12 /* ContentView.swift */,
@@ -149,8 +160,8 @@
 				90534350286B441900237F98 /* sparkle.xml */,
 				9053438A287534C300237F98 /* helper.sh */,
 				9017B5F9294ED626005709C6 /* IconRes.swift */,
-				9017B5FB294EDAB4005709C6 /* LocalImageView.swift */,
 				907AC4FE2955357B00F9F0F9 /* Localizable.strings */,
+				684315F39253A984576B3916 /* ImageView */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -279,16 +290,17 @@
 				908A790B281A128700951B15 /* Request.swift in Sources */,
 				9017B5FA294ED626005709C6 /* IconRes.swift in Sources */,
 				908A78FB2819640800951B15 /* IconManager.swift in Sources */,
-				9017B5FC294EDAB4005709C6 /* LocalImageView.swift in Sources */,
 				90B57B8028695BDF00EE52D3 /* AliasName.swift in Sources */,
 				900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */,
 				900D1CFA281938D6007ABB12 /* IconList.swift in Sources */,
 				9053434F286B2A6800237F98 /* AutoUpdater.swift in Sources */,
 				908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */,
-				908A790D281A148000951B15 /* ImageView.swift in Sources */,
 				90B57B8228697BEF00EE52D3 /* SetAliasNameView.swift in Sources */,
 				900D1CF8281936C7007ABB12 /* FullDiskPermision.swift in Sources */,
 				908A79092819840D00951B15 /* ChangeView.swift in Sources */,
+				684314A1977FA2DF04BCD0F2 /* LocalImageView.swift in Sources */,
+				68431D584237DD997A7513DA /* ImageView.swift in Sources */,
+				684312FB180B32D3350C6687 /* ImageViewCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
