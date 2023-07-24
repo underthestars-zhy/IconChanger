@@ -3,6 +3,7 @@
 //  IconChanger
 //
 //  Created by 朱浩宇 on 2022/4/27.
+//  Modified by seril on 2023/7/24.
 //
 
 import SwiftUI
@@ -20,89 +21,84 @@ struct IconList: View {
     @State var setAlias: String?
 
     var body: some View {
-            NavigationView {
-                List(selection: $selectedApp) {
-                    ForEach(iconManager.apps, id: \.url) { app in
-                        NavigationLink(destination: AppDetailView(app: app),
-                                tag: app,
-                                selection: $selectedApp) {
-                            IconView(app: app)
-                        }.contextMenu {
-                                    Button("Copy the Name") {
+        NavigationView {
+            List(selection: $selectedApp) {
+                ForEach(iconManager.apps, id: \.url) { app in
+                    NavigationLink(destination: ChangeView(setPath: app),
+                            tag: app,
+                            selection: $selectedApp) {
+                        IconView(app: app)
+                    }
+                            .contextMenu {
+                                Button("Copy the Name") {
+                                    NSPasteboard.general.clearContents()
+                                    NSPasteboard.general.setString(app.name, forType: .string)
+                                }
+
+                                Menu("Path") {
+                                    Button("Copy") {
                                         NSPasteboard.general.clearContents()
-                                        NSPasteboard.general.setString(app.name, forType: .string)
+                                        NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
                                     }
 
-                                    Menu("Path") {
-                                        Button("Copy") {
-                                            NSPasteboard.general.clearContents()
-                                            NSPasteboard.general.setString(app.url.universalPath(), forType: .string)
-                                        }
-
-                                        Button("Copy the Path Name") {
-                                            NSPasteboard.general.clearContents()
-                                            NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
-                                        }
-
-                                        Button("Show in the Finder") {
-                                            NSWorkspace.shared.activateFileViewerSelecting([app.url])
-                                        }
+                                    Button("Copy the Path Name") {
+                                        NSPasteboard.general.clearContents()
+                                        NSPasteboard.general.setString(app.url.deletingPathExtension().lastPathComponent, forType: .string)
                                     }
 
-                                    Button("Set the Alias") {
-                                        setAlias = app.url.deletingPathExtension().lastPathComponent
-                                    }
-
-                                    Button("Remove the Icon from the Launchpad") {
-                                        do {
-                                            try LaunchPadManagerDBHelper().removeApp(app)
-                                        } catch {
-                                            print(error)
-                                        }
+                                    Button("Show in the Finder") {
+                                        NSWorkspace.shared.activateFileViewerSelecting([app.url])
                                     }
                                 }
-                    }
-                }
-                        .listStyle(SidebarListStyle())  // Use SidebarListStyle to create a sidebar look
-                        .frame(minWidth: 200, idealWidth: 250, maxWidth: 300) // Adjust the width to your liking
 
-                // Display detail view when an app is selected, otherwise display placeholder
-                if let app = selectedApp {
-                    AppDetailView(app: app)
-                } else {
-                    Text("Select an app to see its details")
-                            .foregroundColor(.secondary)
+                                Button("Set the Alias") {
+                                    setAlias = app.url.deletingPathExtension().lastPathComponent
+                                }
+
+                                Button("Remove the Icon from the Launchpad") {
+                                    do {
+                                        try LaunchPadManagerDBHelper().removeApp(app)
+                                    } catch {
+                                        print(error)
+                                    }
+                                }
+                            }
+                }
+            }
+                    .listStyle(SidebarListStyle())  // Use SidebarListStyle to create a sidebar look
+                    .frame(minWidth: 200, idealWidth: 250, maxWidth: 300) // Adjust the width to your liking
+
+            // Display detail view when an app is selected, otherwise display placeholder
+            if let app = selectedApp {
+                ChangeView(setPath: app)
+            } else {
+                Text("Select an app to see its details")
+                        .foregroundColor(.secondary)
+            }
+        }
+
+        .sheet(item: $setAlias) {
+            SetAliasNameView(raw: $0, lastText: AliasName.getNames(for: $0) ?? "")
+        }
+        .searchable(text: $searchText)
+        .toolbar {
+            ToolbarItem {
+                Menu {
+                    Button("Install Helper Again") {
+                        try? iconManager.installHelperTool()
+                    }
+                } label: {
+                    Image(systemName: "hammer.fill")
                 }
             }
 
-                    .sheet(item: $setAlias) {
-                        SetAliasNameView(raw: $0, lastText: AliasName.getNames(for: $0) ?? "")
-                    }
-                    .sheet(item: $setPath) {
-                        ChangeView(setPath: $0)
-                                .onDisappear {
-                                    setPath = nil
-                                }
-                    }
-                    .searchable(text: $searchText)
-                    .toolbar {
-                        ToolbarItem {
-                            Menu {
-                                Button("Install Helper Again") {
-                                    try? iconManager.installHelperTool()
-                                }
-                            } label: {
-                                Image(systemName: "hammer.fill")
-                            }
-                        }
-
-                        ToolbarItem(placement: .automatic) {
-                            Button {
-                                iconManager.refresh()
-                            } label: {
-                                Image(systemName: "goforward")
-                            }
-                        }
+            ToolbarItem(placement: .automatic) {
+                Button {
+                    iconManager.refresh()
+                } label: {
+                    Image(systemName: "goforward")
+                }
+            }
 
         }
     }
@@ -124,23 +120,6 @@ struct IconView: View {
     }
 }
 
-
-
-struct AppDetailView: View {
-    let app: LaunchPadManagerDBHelper.AppInfo
-
-    var body: some View {
-        VStack {
-            Text(app.name)
-            Image(nsImage: NSWorkspace.shared.icon(forFile: app.url.universalPath()))
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-            // Add more information about the app here
-        }
-                .padding()
-    }
-}
 
 extension String: Identifiable {
     public var id: String {
