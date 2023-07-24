@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var fullDiskPermision = FullDiskPermision.shared
+    @StateObject var folderPermission = FolderPermission.shared
     @StateObject var iconManager = IconManager.shared
     @AppStorage("helperToolVersion") var helperToolVersion = 0
     
     var body: some View {
-        if fullDiskPermision.hasPermision {
+        if folderPermission.hasPermission {
             IconList()
                 .task {
                     if helperToolVersion < Config.helperToolVersion {
@@ -32,37 +33,53 @@ struct ContentView: View {
                     }
                 }
         } else {
+//            VStack {
+//                Text("We Need Full Disk Access")
+//                    .font(.largeTitle.bold())
+//                    .padding()
+//
+//                VStack(alignment: .leading) {
+//                    Text("1. Open the System Setting App")
+//                    Text("2. Go to the security")
+//                    Text("3. Choose the Full Disk Access")
+//                    Text("4. Unlock it")
+//                    Text("5. Choose or add the IconChanger")
+//                    Text("6. Check the check box")
+//                }
+//                .multilineTextAlignment(.leading)
+//
+//                Button("Check the Access Permition") {
+//                    fullDiskPermision.check()
+//                }
+//                .padding()
+//            }
+//            .task {
+//                if #available(macOS 13.0, *) {
+//                    try? await Task.sleep(for: .seconds(1))
+//                } else {
+//                    try? await Task.sleep(nanoseconds: NSEC_PER_SEC)
+//                }
+//
+//                fullDiskPermision.check()
+//                if !fullDiskPermision.hasPermision {
+//                    NSWorkspace.shared.openLocationService(for: .fullDisk)
+//                }
+//            }
             VStack {
-                Text("We Need Full Disk Access")
-                    .font(.largeTitle.bold())
-                    .padding()
+                Text("We Need Access to /Applications")
+                        .font(.largeTitle.bold())
+                        .padding()
 
                 VStack(alignment: .leading) {
-                    Text("1. Open the System Setting App")
-                    Text("2. Go to the security")
-                    Text("3. Choose the Full Disk Access")
-                    Text("4. Unlock it")
-                    Text("5. Choose or add the IconChanger")
-                    Text("6. Check the check box")
+                    Text("1. A dialog will appear requesting access to /Applications")
+                    Text("2. Please choose /Applications and click OK")
                 }
-                .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.leading)
 
-                Button("Check the Access Permition") {
-                    fullDiskPermision.check()
+                Button("Request Access") {
+                    folderPermission.check()
                 }
-                .padding()
-            }
-            .task {
-                if #available(macOS 13.0, *) {
-                    try? await Task.sleep(for: .seconds(1))
-                } else {
-                    try? await Task.sleep(nanoseconds: NSEC_PER_SEC)
-                }
-
-                fullDiskPermision.check()
-                if !fullDiskPermision.hasPermision {
-                    NSWorkspace.shared.openLocationService(for: .fullDisk)
-                }
+                        .padding()
             }
         }
     }
