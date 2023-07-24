@@ -7,7 +7,36 @@
 
 import SwiftUI
 
-struct AliasName {
+func setupDefaultAliasNames() {
+    let defaultAlias = [
+        "wechatwebdevtools": "wechat dev",
+        "WebStorm Early Access Program": "WebStorm",
+        "PyCharm Professional Edition": "PyCharm",
+        "语雀": "yuque",
+        "System Settings": "Settings",
+        "Readwise_iBooks": "Readwise",
+        "Adobe Photoshop (Beta)": "Photoshop",
+        "Adobe Bridge (Beta)": "Bridge",
+        "Adobe Illustrator (Beta)": "Illustrator",
+        "Adobe Illustrator 2023": "Illustrator",
+        "PyCharm Community": "PyCharm",
+    ]
+
+    if let data = UserDefaults.standard.data(forKey: "AliasName"),
+       var storedAlias = try? JSONDecoder().decode([String: String].self, from: data) {
+
+        for (key, value) in defaultAlias {
+            if storedAlias[key] == nil {
+                storedAlias[key] = value
+            }
+        }
+        UserDefaults.standard.set(try? JSONEncoder().encode(storedAlias), forKey: "AliasName")
+    } else {
+        UserDefaults.standard.set(try? JSONEncoder().encode(defaultAlias), forKey: "AliasName")
+    }
+}
+
+struct AliasNameOld {
     static let names = [
         "wechatwebdevtools": "wechat dev",
         "WebStorm Early Access Program": "WebStorm",
@@ -24,7 +53,7 @@ struct AliasName {
 
     static func getNames() -> [String: String] {
         if let data = UserDefaults.standard.data(forKey: "AliasName") {
-            return names + ((try? JSONDecoder().decode([String : String].self, from: data)) ?? [:])
+            return names + ((try? JSONDecoder().decode([String: String].self, from: data)) ?? [:])
         }
 
         return names
@@ -36,7 +65,7 @@ struct AliasName {
 
     static func setName(_ name: String, for raw: String) {
         do {
-            if let data = UserDefaults.standard.data(forKey: "AliasName"), var names = try? JSONDecoder().decode([String : String].self, from: data) {
+            if let data = UserDefaults.standard.data(forKey: "AliasName"), var names = try? JSONDecoder().decode([String: String].self, from: data) {
                 names[raw] = name
                 UserDefaults.standard.set(try JSONEncoder().encode(names), forKey: "AliasName")
             } else {
@@ -51,7 +80,7 @@ struct AliasName {
 
     static func setEmpty(for raw: String) {
         do {
-            if let data = UserDefaults.standard.data(forKey: "AliasName"), var names = try? JSONDecoder().decode([String : String].self, from: data) {
+            if let data = UserDefaults.standard.data(forKey: "AliasName"), var names = try? JSONDecoder().decode([String: String].self, from: data) {
                 names[raw] = nil
                 UserDefaults.standard.set(try JSONEncoder().encode(names), forKey: "AliasName")
             }

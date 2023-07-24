@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684311E1DAA0EE528A75D6B4 /* SetAliasNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684312DDF57DD3F7FD140291 /* SetAliasNameView.swift */; };
 		684312FB180B32D3350C6687 /* ImageViewCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68431B5BF95B69F7A3E9C314 /* ImageViewCore.swift */; };
 		684314A1977FA2DF04BCD0F2 /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6843102ECDF4DE9417AD9634 /* LocalImageView.swift */; };
+		68431CD74AE43807FEA2060C /* AliasName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68431D5A5B918C1F369508C2 /* AliasName.swift */; };
 		68431D584237DD997A7513DA /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68431AB7EEBD9DCD4429645F /* ImageView.swift */; };
+		68431F5F90EFAE60C30EF968 /* AliasNameCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68431A145EE994BD86061133 /* AliasNameCore.swift */; };
 		900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CE8281934C7007ABB12 /* IconChangerApp.swift */; };
 		900D1CEB281934C7007ABB12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D1CEA281934C7007ABB12 /* ContentView.swift */; };
 		900D1CED281934C8007ABB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D1CEC281934C8007ABB12 /* Assets.xcassets */; };
@@ -36,8 +39,6 @@
 		908A792A281A5AE800951B15 /* Github-Iconchanger.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A7929281A5AE800951B15 /* Github-Iconchanger.png */; };
 		908A792C281A759A00951B15 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908A792B281A759A00951B15 /* SettingView.swift */; };
 		908A792E281A771800951B15 /* Api.png in Resources */ = {isa = PBXBuildFile; fileRef = 908A792D281A771800951B15 /* Api.png */; };
-		90B57B8028695BDF00EE52D3 /* AliasName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57B7F28695BDF00EE52D3 /* AliasName.swift */; };
-		90B57B8228697BEF00EE52D3 /* SetAliasNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57B8128697BEF00EE52D3 /* SetAliasNameView.swift */; };
 		90B57C1B286AA2B400EE52D3 /* URL+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1A286AA2B400EE52D3 /* URL+Document.swift */; };
 		90B57C1D286AA2F800EE52D3 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B57C1C286AA2F800EE52D3 /* Config.swift */; };
 		90B57C20286AB90700EE52D3 /* installHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 90B57C1F286AB90700EE52D3 /* installHelper.sh */; };
@@ -46,8 +47,11 @@
 /* Begin PBXFileReference section */
 		6843102ECDF4DE9417AD9634 /* LocalImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalImageView.swift; sourceTree = "<group>"; };
 		684310CF2CFC89861988FEC0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		684312DDF57DD3F7FD140291 /* SetAliasNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAliasNameView.swift; sourceTree = "<group>"; };
+		68431A145EE994BD86061133 /* AliasNameCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AliasNameCore.swift; sourceTree = "<group>"; };
 		68431AB7EEBD9DCD4429645F /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		68431B5BF95B69F7A3E9C314 /* ImageViewCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewCore.swift; sourceTree = "<group>"; };
+		68431D5A5B918C1F369508C2 /* AliasName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AliasName.swift; sourceTree = "<group>"; };
 		900D1CE5281934C7007ABB12 /* IconChanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IconChanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900D1CE8281934C7007ABB12 /* IconChangerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangerApp.swift; sourceTree = "<group>"; };
 		900D1CEA281934C7007ABB12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,8 +80,6 @@
 		908A7929281A5AE800951B15 /* Github-Iconchanger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Github-Iconchanger.png"; sourceTree = "<group>"; };
 		908A792B281A759A00951B15 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		908A792D281A771800951B15 /* Api.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Api.png; sourceTree = "<group>"; };
-		90B57B7F28695BDF00EE52D3 /* AliasName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliasName.swift; sourceTree = "<group>"; };
-		90B57B8128697BEF00EE52D3 /* SetAliasNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAliasNameView.swift; sourceTree = "<group>"; };
 		90B57C1A286AA2B400EE52D3 /* URL+Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Document.swift"; sourceTree = "<group>"; };
 		90B57C1C286AA2F800EE52D3 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		90B57C1E286AA62300EE52D3 /* IconChanger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconChanger.entitlements; sourceTree = "<group>"; };
@@ -99,6 +101,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6843107C0C56CB3BC8FB61D4 /* AliasName */ = {
+			isa = PBXGroup;
+			children = (
+				68431D5A5B918C1F369508C2 /* AliasName.swift */,
+				684312DDF57DD3F7FD140291 /* SetAliasNameView.swift */,
+				68431A145EE994BD86061133 /* AliasNameCore.swift */,
+			);
+			path = AliasName;
+			sourceTree = "<group>";
+		};
 		684315F39253A984576B3916 /* ImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,8 +162,6 @@
 				908A790A281A128700951B15 /* Request.swift */,
 				908A792B281A759A00951B15 /* SettingView.swift */,
 				9083CCED28680BE20093A1B2 /* URL+Universal.swift */,
-				90B57B7F28695BDF00EE52D3 /* AliasName.swift */,
-				90B57B8128697BEF00EE52D3 /* SetAliasNameView.swift */,
 				90B57C1A286AA2B400EE52D3 /* URL+Document.swift */,
 				90B57C1C286AA2F800EE52D3 /* Config.swift */,
 				90534351286C8BDA00237F98 /* fileicon */,
@@ -162,6 +172,7 @@
 				9017B5F9294ED626005709C6 /* IconRes.swift */,
 				907AC4FE2955357B00F9F0F9 /* Localizable.strings */,
 				684315F39253A984576B3916 /* ImageView */,
+				6843107C0C56CB3BC8FB61D4 /* AliasName */,
 			);
 			path = IconChanger;
 			sourceTree = "<group>";
@@ -290,17 +301,18 @@
 				908A790B281A128700951B15 /* Request.swift in Sources */,
 				9017B5FA294ED626005709C6 /* IconRes.swift in Sources */,
 				908A78FB2819640800951B15 /* IconManager.swift in Sources */,
-				90B57B8028695BDF00EE52D3 /* AliasName.swift in Sources */,
 				900D1CE9281934C7007ABB12 /* IconChangerApp.swift in Sources */,
 				900D1CFA281938D6007ABB12 /* IconList.swift in Sources */,
 				9053434F286B2A6800237F98 /* AutoUpdater.swift in Sources */,
 				908A79022819753E00951B15 /* String+RangeSubscript.swift in Sources */,
-				90B57B8228697BEF00EE52D3 /* SetAliasNameView.swift in Sources */,
 				900D1CF8281936C7007ABB12 /* FullDiskPermision.swift in Sources */,
 				908A79092819840D00951B15 /* ChangeView.swift in Sources */,
 				684314A1977FA2DF04BCD0F2 /* LocalImageView.swift in Sources */,
 				68431D584237DD997A7513DA /* ImageView.swift in Sources */,
 				684312FB180B32D3350C6687 /* ImageViewCore.swift in Sources */,
+				68431CD74AE43807FEA2060C /* AliasName.swift in Sources */,
+				684311E1DAA0EE528A75D6B4 /* SetAliasNameView.swift in Sources */,
+				68431F5F90EFAE60C30EF968 /* AliasNameCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

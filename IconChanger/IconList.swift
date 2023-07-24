@@ -79,30 +79,30 @@ struct IconList: View {
             }
         }
 
-        .sheet(item: $setAlias) {
-            SetAliasNameView(raw: $0, lastText: AliasName.getNames(for: $0) ?? "")
-        }
-        .searchable(text: $searchText)
-        .toolbar {
-            ToolbarItem {
-                Menu {
-                    Button("Install Helper Again") {
-                        try? iconManager.installHelperTool()
+                .sheet(item: $setAlias) {
+                    SetAliasNameView(raw: $0, lastText: AliasName.getName(for: $0) ?? "")
+                }
+                .searchable(text: $searchText)
+                .toolbar {
+                    ToolbarItem {
+                        Menu {
+                            Button("Install Helper Again") {
+                                try? iconManager.installHelperTool()
+                            }
+                        } label: {
+                            Image(systemName: "hammer.fill")
+                        }
                     }
-                } label: {
-                    Image(systemName: "hammer.fill")
-                }
-            }
 
-            ToolbarItem(placement: .automatic) {
-                Button {
-                    iconManager.refresh()
-                } label: {
-                    Image(systemName: "goforward")
-                }
-            }
+                    ToolbarItem(placement: .automatic) {
+                        Button {
+                            iconManager.refresh()
+                        } label: {
+                            Image(systemName: "goforward")
+                        }
+                    }
 
-        }
+                }
     }
 
 }

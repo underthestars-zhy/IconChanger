@@ -44,9 +44,15 @@ class IconManager: ObservableObject {
     }
 
     func installHelperTool() throws {
-        guard let fileiconBundlePath = Bundle.main.path(forResource: "fileicon", ofType: nil) else { fatalError("Cannot get the sh file path") }
-        guard let helperBundlePath = Bundle.main.path(forResource: "helper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
-        guard let installHelperBundlePath = Bundle.main.path(forResource: "installHelper", ofType: "sh") else { fatalError("Cannot get the sh file path") }
+        guard let fileiconBundlePath = Bundle.main.path(forResource: "fileicon", ofType: nil) else {
+            fatalError("Cannot get the sh file path")
+        }
+        guard let helperBundlePath = Bundle.main.path(forResource: "helper", ofType: "sh") else {
+            fatalError("Cannot get the sh file path")
+        }
+        guard let installHelperBundlePath = Bundle.main.path(forResource: "installHelper", ofType: "sh") else {
+            fatalError("Cannot get the sh file path")
+        }
 
         let fileiconPath = URL.documents.universalappending(path: "fileicon")
         let helperPath = URL.documents.universalappending(path: "helper.sh")
@@ -62,29 +68,33 @@ class IconManager: ObservableObject {
         try FileManager.default.copyItem(at: URL(universalFilePath: fileiconBundlePath), to: fileiconPath)
         try FileManager.default.copyItem(at: URL(universalFilePath: helperBundlePath), to: helperPath)
 
-        try setContent(URL(universalFilePath: installHelperBundlePath), replacement: ["path" : helperPath.universalPath(), "fileicon": fileiconPath.universalPath()]) {
+        try setContent(URL(universalFilePath: installHelperBundlePath), replacement: ["path": helperPath.universalPath(), "fileicon": fileiconPath.universalPath()]) {
             NSAppleScript(source: "do shell script \"chmod +x '\(installHelperBundlePath)' && sudo '\(installHelperBundlePath)'\" with administrator " + "privileges")!.executeAndReturnError(nil)
         }
     }
 
     static func saveImage(_ image: NSImage, atUrl url: URL) {
         guard
-            let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)
-        else { return } // TODO: handle error
+                let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        else {
+            return
+        } // TODO: handle error
         let newRep = NSBitmapImageRep(cgImage: cgImage)
         newRep.size = image.size // if you want the same size
         guard
-            let pngData = newRep.representation(using: .png, properties: [:])
-        else { return } // TODO: handle error
+                let pngData = newRep.representation(using: .png, properties: [:])
+        else {
+            return
+        } // TODO: handle error
         do {
             try pngData.write(to: url)
-        }
-        catch {
+        } catch {
             print("error saving: \(error)")
         }
     }
 
-    func setContent(_ path: URL, replacement: [String : String], run: () throws -> () = {}) throws {
+    func setContent(_ path: URL, replacement: [String: String], run: () throws -> () = {
+    }) throws {
         var content = try String(contentsOf: path, encoding: .utf8)
         let copy = content
 
@@ -103,9 +113,9 @@ class IconManager: ObservableObject {
 
     func setImage(_ image: NSImage, app: LaunchPadManagerDBHelper.AppInfo) throws {
         let imageURL = URL.documents.universalappending(path: "icon.png")
-#if DEBUG
+        #if DEBUG
         print(imageURL)
-#endif
+        #endif
 
         if FileManager.default.fileExists(atPath: imageURL.universalPath()) {
             try FileManager.default.removeItem(at: imageURL)
@@ -117,9 +127,9 @@ class IconManager: ObservableObject {
 
         let fileiconPath = URL.documents.universalappending(path: "fileicon")
 
-        try setContent(helperPath, replacement: ["fileicon" : fileiconPath.universalPath(),
-                                             "app" : app.url.universalPath(),
-                                             "image" : imageURL.universalPath()]){
+        try setContent(helperPath, replacement: ["fileicon": fileiconPath.universalPath(),
+                                                 "app": app.url.universalPath(),
+                                                 "image": imageURL.universalPath()]) {
             try runHelperTool()
         }
     }
@@ -134,12 +144,14 @@ class IconManager: ObservableObject {
         let url = url.appendingPathComponent("Contents").appendingPathComponent("Resources")
         let file = (try? FileManager.default.contentsOfDirectory(atPath: url.path)) ?? [String]()
         return file.filter {
-            $0.contains(".icns")
-        }.map {
-            url.appendingPathComponent($0).path
-        }.map {
-            URL(fileURLWithPath: $0)
-        }
+                    $0.contains(".icns")
+                }
+                .map {
+                    url.appendingPathComponent($0).path
+                }
+                .map {
+                    URL(fileURLWithPath: $0)
+                }
     }
 
     func getNameFromURL(_ url: String) -> String {
@@ -153,13 +165,13 @@ class IconManager: ObservableObject {
         let appName = app.name
         let urlName = app.url.deletingPathExtension().lastPathComponent
         let bundleName = try getAppBundleName(app)
-        let aliasName = AliasName.getNames(for: app.url.deletingPathExtension().lastPathComponent)
+        let aliasName = AliasName.getName(for: app.url.deletingPathExtension().lastPathComponent)
 
         var res = [IconRes]()
 
         res.append(contentsOf: try await MyQueryRequestController().sendRequest(appName))
         res.append(contentsOf: try await MyQueryRequestController().sendRequest(urlName))
-        
+
         if let bundleName {
             res.append(contentsOf: try await MyQueryRequestController().sendRequest(bundleName))
         }
@@ -168,7 +180,9 @@ class IconManager: ObservableObject {
             res.append(contentsOf: try await MyQueryRequestController().sendRequest(aliasName))
         }
 
-        return Set(res).map { $0 }
+        return Set(res).map {
+            $0
+        }
     }
 
     func getAppBundleName(_ app: LaunchPadManagerDBHelper.AppInfo) throws -> String? {
