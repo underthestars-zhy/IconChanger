@@ -29,10 +29,63 @@ struct GeneralSettingView: View {
     @State private var selectedAlias = Set<AliasName.ID>()
     @State private var sortOrder = [KeyPathComparator(\AliasName.appName)]
 
+    @ObservedObject var folderPermission = FolderPermission.shared
+    @State private var selectedId: UUID?
+
     var body: some View {
         VStack {
             HStack {
+                Text("Application Folders")
+                        .font(.headline)
+                Spacer()
+                Button(action: {
+                    folderPermission.add()
+                }) {
+                    Image(systemName: "plus")
+                }
 
+                Button(action: {
+                    folderPermission.removeBookmark()
+                }) {
+                    Image(systemName: "minus")
+                }
+                        .disabled(selectedId == nil || folderPermission.permissions.first(where: { $0.id == selectedId })?.path == "/Applications")
+            }
+                    .buttonStyle(.bordered)
+
+            Table(folderPermission.permissions, selection: $selectedId) {
+                TableColumn("Folder", value: \.path)
+
+            }
+                    .onChange(of: selectedId) { newValue in
+                        // Handle selection change if needed
+                    }
+                    .onAppear {
+                        folderPermission.check()
+                    }
+//
+//            HStack {
+//                Text("Application Folders")
+//                        .font(.headline)
+//                Spacer()
+//                Button(action: {}) {
+//                    Image(systemName: "plus")
+//                }
+//
+//                Button(action: {}) {
+//                    Image(systemName: "minus")
+//                }
+//            }
+//                    .buttonStyle(.bordered)
+//            Table(folderPermission.permissions) {
+//                    TableColumn("Folder", value: \.bookmarkedURL)
+//                }
+//                    .onAppear {
+//                        folderPermission.check()
+//                    }
+
+
+            HStack {
                 Text("Alias Names")
                         .font(.headline)
                 Spacer()
@@ -84,6 +137,7 @@ struct GeneralSettingView: View {
                     }
 
         }
+
                 .padding()
 
     }

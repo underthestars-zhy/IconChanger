@@ -1,5 +1,5 @@
 //
-//  PermisionRequest.swift
+//  PermissionRequest.swift
 //  IconChanger
 //
 //  Created by seril on 7/25/23.
@@ -8,10 +8,19 @@
 import SwiftUI
 import Combine
 
+struct PermissionList: Identifiable {
+    let bookmarkedURL: String
+    var path: String {
+        return URL(string: bookmarkedURL)?.path ?? ""
+    }
+    let id = UUID()
+}
+
 class FolderPermission: ObservableObject {
     static let shared = FolderPermission()
 
-    @Published var hasPermission: Bool = false
+    @Published var permissions: [PermissionList] = []
+
     var bookmarkData: Data? {
         didSet {
             UserDefaults.standard.set(bookmarkData, forKey: "bookmarkData")
@@ -19,21 +28,31 @@ class FolderPermission: ObservableObject {
     }
     var url: URL?
 
+    var hasPermission: Bool {
+        hasPermissionForApplicationsFolder()
+    }
+
     init() {
         if let bookmarkData = UserDefaults.standard.data(forKey: "bookmarkData") {
             self.bookmarkData = bookmarkData
             do {
                 let url = try accessBookmark(bookmarkData)
                 self.url = url
-                hasPermission = true
+                permissions.append(PermissionList(bookmarkedURL: url.absoluteString))
             } catch {
                 print("Error accessing bookmark:", error)
-                hasPermission = false
             }
         }
     }
 
     func check() {
+        print(permissions)
+        if !hasPermission {
+            add()
+        }
+    }
+
+    func add() {
         let openPanel = NSOpenPanel()
         openPanel.directoryURL = URL(fileURLWithPath: "/Applications")
         openPanel.canChooseFiles = false
@@ -42,20 +61,39 @@ class FolderPermission: ObservableObject {
         openPanel.allowsMultipleSelection = false
         openPanel.begin { (result) in
             if result == .OK {
-                guard let url = openPanel.url else { return }
-                self.url = url
-                do {
-                    let bookmark = try self.createBookmark(from: url)
-                    self.bookmarkData = bookmark
-                    self.hasPermission = true
-                } catch {
-                    print("Error creating bookmark:", error)
-                    self.hasPermission = false
-                }
-            } else {
-                self.hasPermission = false
+                self.addBookmark(openPanel.url)
             }
         }
+    }
+
+    func addBookmark(_ url: URL?) {
+        guard let url = url else { return }
+        if permissions.contains(where: { $0.bookmarkedURL == url.absoluteString }) {
+            // The folder has already been added.
+            return
+        }
+        self.url = url
+        do {
+            let bookmark = try createBookmark(from: url)
+            bookmarkData = bookmark
+            permissions.append(PermissionList(bookmarkedURL: url.absoluteString))
+        } catch {
+            print("Error creating bookmark:", error)
+        }
+    }
+
+
+    func hasPermissionForApplicationsFolder() -> Bool {
+        guard let bookmarkData = UserDefaults.standard.data(forKey: "bookmarkData") else { return false }
+        do {
+            let bookmarkedURL = try accessBookmark(bookmarkData)
+            if bookmarkedURL.path == "/Applications" {
+                return true
+            }
+        } catch {
+            print("Error accessing bookmark:", error)
+        }
+        return false
     }
 
     // 创建一个安全标签
@@ -85,5 +123,15 @@ class FolderPermission: ObservableObject {
         }
 
         return bookmarkedURL
+    }
+
+    func removeBookmark() {
+        guard !permissions.isEmpty else { return }
+        permissions.removeLast()
+        if let lastBookmark = permissions.last {
+            bookmarkData = lastBookmark.bookmarkedURL.data(using: .utf8)
+        } else {
+            bookmarkData = nil
+        }
     }
 }
