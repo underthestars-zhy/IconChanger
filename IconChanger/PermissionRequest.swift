@@ -46,7 +46,7 @@ class FolderPermission: ObservableObject {
     }
 
     func check() {
-        print(permissions)
+//        print(permissions)
         if !hasPermission {
             add()
         }
@@ -82,18 +82,10 @@ class FolderPermission: ObservableObject {
         }
     }
 
-
     func hasPermissionForApplicationsFolder() -> Bool {
-        guard let bookmarkData = UserDefaults.standard.data(forKey: "bookmarkData") else { return false }
-        do {
-            let bookmarkedURL = try accessBookmark(bookmarkData)
-            if bookmarkedURL.path == "/Applications" {
-                return true
-            }
-        } catch {
-            print("Error accessing bookmark:", error)
-        }
-        return false
+        let safariAppURL = URL(fileURLWithPath: "/Applications/Safari.app/Contents/Info.plist")
+        let fileManager = FileManager.default
+        return fileManager.isReadableFile(atPath: safariAppURL.path)
     }
 
     // 创建一个安全标签

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var fullDiskPermision = FullDiskPermision.shared
+//    @StateObject var fullDiskPermision = FullDiskPermision.shared
     @StateObject var folderPermission = FolderPermission.shared
     @StateObject var iconManager = IconManager.shared
     @AppStorage("helperToolVersion") var helperToolVersion = 0
