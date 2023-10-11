@@ -46,6 +46,6 @@ IconChanger是一个可以更换App图标的应用程序。它简化了你更换
 
 ## 承谢
 
-* [macOSIcon](https://macosicons.com/#/)
-* [fileiocn](https://github.com/mklement0/fileicon)
+* [macOSicons](https://macosicons.com/#/)
+* [fileicon](https://github.com/mklement0/fileicon)
 * [Atom](https://github.com/atomtoto)
