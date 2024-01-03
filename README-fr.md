@@ -46,6 +46,6 @@ Vraiment désolé de le dire, mais actuellement, nous ne pouvons pas modifier le
 
 ## Remerciments
 
-* [macOSIcon](https://macosicons.com/#/)
-* [fileiocn](https://github.com/mklement0/fileicon)
+* [macOSicons](https://macosicons.com/#/)
+* [fileicon](https://github.com/mklement0/fileicon)
 * [Atom](https://github.com/atomtoto)
