@@ -3,6 +3,7 @@
 //  IconChanger
 //
 //  Created by 朱浩宇 on 2022/4/28.
+//  Modified by seril on 2023/7/25.
 //
 
 import Foundation
@@ -37,10 +38,10 @@ class MyRequestController {
         // Headers
 
         request.addValue("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", forHTTPHeaderField: "Accept")
-        request.addValue("zh-CN,zh-Hans;q=0.9", forHTTPHeaderField: "Accept-Language")
+        request.addValue("en-US,en;q=0.9", forHTTPHeaderField: "Accept-Language")
         request.addValue("keep-alive", forHTTPHeaderField: "Connection")
         request.addValue("gzip, deflate, br", forHTTPHeaderField: "Accept-Encoding")
-        request.addValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15", forHTTPHeaderField: "User-Agent")
+        request.addValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5.1 Safari/605.1.15", forHTTPHeaderField: "User-Agent")
         request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 
         /* Start a new Task */
